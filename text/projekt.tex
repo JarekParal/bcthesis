@@ -87,26 +87,27 @@
 %---------------------------------------------------------------------------
 \projectinfo{
   %Prace / Thesis
-  project=BP,            %typ prace BP/SP/DP/DR  / thesis type (SP = term project)
+  project=SP,            %typ prace BP/SP/DP/DR  / thesis type (SP = term project)
   year=2017,             %rok odevzdání / year of submission
   date=\today,           %datum odevzdani / submission date
   %Nazev prace / thesis title
-  title.cs={Název práce},  %nazev prace v cestine ci slovenstine (dle zadani) / thesis title in czech language (according to assignment)
-  title.en={Thesis title}, %nazev prace v anglictine / thesis title in english
+  title.cs={
+Lego Mindstorm EV3 ve výuce programování a robotiky},  %nazev prace v cestine ci slovenstine (dle zadani) / thesis title in czech language (according to assignment)
+  title.en={Lego Mindstorm EV3 in Education of Programming and Robotics}, %nazev prace v anglictine / thesis title in english
   %Autor / Author
-  author={Jméno Příjmení},   %cele jmeno a prijmeni autora / full name and surname of the author
-  author.name={Jméno},   %jmeno autora (pro citaci) / author name (for reference) 
-  author.surname={Příjmení},   %prijmeni autora (pro citaci) / author surname (for reference) 
+  author={Jaroslav Páral},   %cele jmeno a prijmeni autora / full name and surname of the author
+  author.name={Jaroslav},   %jmeno autora (pro citaci) / author name (for reference) 
+  author.surname={Páral},   %prijmeni autora (pro citaci) / author surname (for reference) 
   %author.title.p=Bc., %titul pred jmenem (nepovinne) / title before the name (optional)
   %author.title.a=PhD, %titul za jmenem (nepovinne) / title after the name (optional)
   %Ustav / Department
-  department=UPGM, % doplnte prislusnou zkratku dle ustavu na zadani: UPSY/UIFS/UITS/UPGM
+  department=UITS, % doplnte prislusnou zkratku dle ustavu na zadani: UPSY/UIFS/UITS/UPGM
   %                  fill in appropriate abbreviation of the department according to assignment: UPSY/UIFS/UITS/UPGM
   %Skolitel / supervisor
-  supervisor=Jméno Příjmení, %cele jmeno a prijmeni skolitele / full name and surname of the supervisor
-  supervisor.name={Jméno},   %jmeno skolitele (pro citaci) / supervisor name (for reference) 
-  supervisor.surname={Příjmení},   %prijmeni skolitele (pro citaci) / supervisor surname (for reference) 
-  supervisor.title.p=Doc. RNDr.,   %titul pred jmenem (nepovinne) / title before the name (optional)
+  supervisor={Filip Orság}, %cele jmeno a prijmeni skolitele / full name and surname of the supervisor
+  supervisor.name={Filip},   %jmeno skolitele (pro citaci) / supervisor name (for reference) 
+  supervisor.surname={Orság},   %prijmeni skolitele (pro citaci) / supervisor surname (for reference) 
+  supervisor.title.p=Ing.,   %titul pred jmenem (nepovinne) / title before the name (optional)
   supervisor.title.a={Ph.D.},    %titul za jmenem (nepovinne) / title after the name (optional)
   %Klicova slova, abstrakty, prohlaseni a podekovani je mozne definovat 
   %bud pomoci nasledujicich parametru nebo pomoci vyhrazenych maker (viz dale)
@@ -138,8 +139,7 @@
 
 %Prohlaseni (u anglicky psane prace anglicky, u slovensky psane prace slovensky)
 %Declaration (for thesis in english should be in english)
-\declaration{Prohlašuji, že jsem tuto bakalářskou práci vypracoval samostatně pod vedením pana X...
-Další informace mi poskytli...
+\declaration{Prohlašuji, že jsem tuto bakalářskou práci vypracoval samostatně pod vedením pana Ing.~Filipa Orsága, Ph.D.
 Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.}
 
 % \declaration{Hereby I declare that this bachelor's thesis was prepared as an original author’s work under the supervision of Mr. X
@@ -147,8 +147,8 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.}
 % All the relevant information sources, which were used during preparation of this thesis, are properly cited and included in the list of references.}
 
 %Podekovani (nepovinne, nejlepe v jazyce prace) / Acknowledgement (optional, ideally in the language of the thesis)
-\acknowledgment{V této sekci je možno uvést poděkování vedoucímu práce a těm, kteří poskytli odbornou pomoc
-(externí zadavatel, konzultant, apod.).}
+%\acknowledgment{V této sekci je možno uvést poděkování vedoucímu práce a těm, kteří poskytli odbornou pomoc
+%(externí zadavatel, konzultant, apod.).}
 %\acknowledgment{Here it is possible to express thanks to the supervisor and to the people which provided professional help
 %(external submitter, consultant, etc.).}
 
@@ -192,8 +192,9 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.}
 
   % Text prace / Thesis text
   % ----------------------------------------------
-  \input{projekt-01-kapitoly-chapters} % viz. obsah.tex / see obsah.tex
-
+  %\input{projekt-01-kapitoly-chapters} % viz. obsah.tex / see obsah.tex		
+  \input{projekt-01-kapitoly}
+    	
   % Pouzita literatura / Bibliography
   % ----------------------------------------------
 \ifslovak
@@ -227,7 +228,7 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.}
 
   % Prilohy / Appendices
   % ---------------------------------------------
-  \appendix
+  %\appendix
 \ifczech
   \renewcommand{\appendixpagename}{Přílohy}
   \renewcommand{\appendixtocname}{Přílohy}
@@ -238,7 +239,7 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.}
   \renewcommand{\appendixtocname}{Prílohy}
   \renewcommand{\appendixname}{Príloha}
 \fi
-  \appendixpage
+  %\appendixpage
 
 % vynechani stranky v oboustrannem rezimu
 % Skip the page in the two-sided mode
@@ -266,5 +267,5 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.}
   \iftwoside
     \cleardoublepage
   \fi
-  \input{projekt-30-prilohy-appendices} % viz. prilohy.tex / see prilohy.tex
+  %\input{projekt-30-prilohy-appendices} % viz. prilohy.tex / see prilohy.tex
 \end{document}
