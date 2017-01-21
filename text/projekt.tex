@@ -32,7 +32,15 @@
 
 % Základní balíčky jsou dole v souboru šablony fitthesis.cls
 % Basic packages are at the bottom of template file fitthesis.cls
+
 %zde muzeme vlozit vlastni balicky / you can place own packages here
+%footnote in caption for figure
+\usepackage{graphicx}
+\usepackage{afterpage}
+
+%subfigure
+\usepackage{caption}
+\usepackage{subcaption}
 
 %---rm---------------
 \renewcommand{\rmdefault}{lmr}%zavede Latin Modern Roman jako rm / set Latin Modern Roman as rm
@@ -129,16 +137,31 @@ Lego Mindstorm EV3 ve výuce programování a robotiky},  %nazev prace v cestine
   %acknowledgment={Here it is possible to express thanks to the supervisor and to the people which provided professional help.} % optional
 }
 
+% Definice vlastních maker / own macros
+
+\newcommand{\lego}{LEGO}
+\newcommand{\legoM}{LEGO MINDSTORMS}
+\newcommand{\legoEV}{LEGO MINDSTORMS EV3}
+
+\newcommand{\fischerT}{fischertechnik}
+\newcommand{\FischerT}{Fischertechnik}
+
+\newcommand{\merkur}{Merkur}
+
+\newcommand{\arduino}{Arduino}
+
+
+
 %Abstrakt (cesky, slovensky ci anglicky) / Abstract (in czech, slovak or english)
-\abstract[cs]{Cílem této práce je srovnat vývojové platformy pro stavebnici LEGO MINDSTORMS EV3 z pohledu programování a nejlepšího využití v rámci robotiky. Proto jsou hlavními srovnávacími parametry výkonnost, náročnost programování při rozsáhlejších projektech a propojení %propojení/spojitost/spojení 
+\abstract[cs]{Cílem této práce je srovnat vývojové platformy pro stavebnici \legoEV{ }z pohledu programování a nejlepšího využití v rámci robotiky. Proto jsou hlavními srovnávacími parametry výkonnost, náročnost programování při rozsáhlejších projektech a propojení %propojení/spojitost/spojení 
 s běžnými programovacími jazyky (C/C++, Java, Python, \ldots). 
 V práci není kladen hlavní důraz na výběr nejvhodnější platformy pro úplné začátečníky v programování. % s LEGO MINDSTORMS?
 Naopak primárním úkolem je najít vhodnou platformu pro lidi, kterým již standardní vývojové prostředí dodávané se stavebnicí nedostačuje a hledají lepší alternativu. }
 \abstract[en]{Do tohoto odstavce bude zapsán výtah (abstrakt) práce v anglickém jazyce.}
 
 %Klicova slova (cesky, slovensky ci anglicky) / Keywords (in czech, slovak or english)
-\keywords[cs]{LEGO MINDSTORMS EV3, programovací platformy, ev3dev, LeJOS, ROS, Matlab, EV3RT, ROBOTC}
-\keywords[en]{Sem budou zapsána jednotlivá klíčová slova v anglickém jazyce, oddělená čárkami.}
+\keywords[cs]{\legoEV, programovací platformy, ev3dev, LeJOS, ROS, Matlab, EV3RT, ROBOTC}
+\keywords[en]{\legoEV, programing platforms, ev3dev, LeJOS, ROS, Matlab, EV3RT, ROBOTC}
 
 %Prohlaseni (u anglicky psane prace anglicky, u slovensky psane prace slovensky)
 %Declaration (for thesis in english should be in english)
@@ -177,7 +200,8 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.}
   \renewcommand\listfigurename{Zoznam obrázkov}
 \fi
 
-  % \listoffigures
+  \listoffigures
+
 \ifczech
   \renewcommand\listtablename{Seznam tabulek}
 \fi
@@ -196,6 +220,9 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.}
   % Text prace / Thesis text
   % ----------------------------------------------
   %\input{projekt-01-kapitoly-chapters} % viz. obsah.tex / see obsah.tex		
+  
+  \input{projekt-01-uvod}
+  
   \input{projekt-01-kapitoly}
     	
   % Pouzita literatura / Bibliography
@@ -219,7 +246,7 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.}
   %  \bibliographystyle{alpha}
   \fi
 \fi
-  \begin{flushleft}
+  \begin{flushleft} 
   \bibliography{projekt-20-literatura-bibliography}
   \end{flushleft}
 
