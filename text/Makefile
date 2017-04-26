@@ -1,8 +1,7 @@
 # makefile pro preklad LaTeX verze Bc. prace
 # makefile for compilation of the thesis
-# (c) 2008 Michal Bidlo
-# E-mail: bidlom AT fit vutbr cz
-# Edited by: dytrych AT fit vutbr cz
+# Autori / Authors: 2008 Michal Bidlo, 2016 Jaroslav Dytrych
+# E-mail: dytrych AT fit vutbr cz
 #===========================================
 # asi budete chtit prejmenovat / you will probably rename:
 CO=projekt

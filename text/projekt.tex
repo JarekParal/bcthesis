@@ -1,9 +1,11 @@
 %==============================================================================
 % tento soubor pouzijte jako zaklad
 % this file should be used as a base for the thesis
-% (c) 2008 Michal Bidlo
-% E-mail: bidlom AT fit vutbr cz
-% Šablonu upravil / template edited by: Ing. Jaroslav Dytrych, dytrych@fit.vutbr.cz
+% Autoři / Authors: 2008 Michal Bidlo, 2016 Jaroslav Dytrych
+
+
+% Kontakt pro dotazy a připomínky: dytrych@fit.vutbr.cz
+% Contact for questions and comments: dytrych@fit.vutbr.cz
 %==============================================================================
 % kodovaní: UTF-8 (zmena prikazem iconv, recode nebo cstocs)
 % encoding: UTF-8 (you can change it by command iconv, recode or cstocs)
@@ -95,13 +97,13 @@
 %---------------------------------------------------------------------------
 \projectinfo{
   %Prace / Thesis
-  project=BP,            %typ prace BP/SP/DP/DR  / thesis type (SP = term project)
+  project=SP,            %typ prace BP/SP/DP/DR  / thesis type (SP = term project)
   year=2017,             %rok odevzdání / year of submission
   date=\today,           %datum odevzdani / submission date
   %Nazev prace / thesis title
   title.cs={
-Lego Mindstorms EV3 ve výuce programování a robotiky},  %nazev prace v cestine ci slovenstine (dle zadani) / thesis title in czech language (according to assignment)
-  title.en={Lego Mindstorms EV3 in Education of Programming and Robotics}, %nazev prace v anglictine / thesis title in english
+Lego Mindstorm EV3 ve výuce programování a robotiky},  %nazev prace v cestine ci slovenstine (dle zadani) / thesis title in czech language (according to assignment)
+  title.en={Lego Mindstorm EV3 in Education of Programming and Robotics}, %nazev prace v anglictine / thesis title in english
   %Autor / Author
   author={Jaroslav Páral},   %cele jmeno a prijmeni autora / full name and surname of the author
   author.name={Jaroslav},   %jmeno autora (pro citaci) / author name (for reference) 
@@ -149,7 +151,6 @@ Lego Mindstorms EV3 ve výuce programování a robotiky},  %nazev prace v cestin
 
 \newcommand{\fll}{{\it FIRST} LEGO League}
 \newcommand{\brick}{{\it Brick}}
-\newcommand{\EVbrick}{EV3 {\it Brick}}
 
 \newcommand{\evThreeDev}{{\it ev3dev}}
 \newcommand{\leJOS}{{leJOS}}
@@ -187,8 +188,8 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.}
 % All the relevant information sources, which were used during preparation of this thesis, are properly cited and included in the list of references.}
 
 %Podekovani (nepovinne, nejlepe v jazyce prace) / Acknowledgement (optional, ideally in the language of the thesis)
-%\acknowledgment{V této sekci je možno uvést poděkování vedoucímu práce a těm, kteří poskytli odbornou pomoc
-%(externí zadavatel, konzultant, apod.).}
+\acknowledgment{V této sekci je možno uvést poděkování vedoucímu práce a těm, kteří poskytli odbornou pomoc
+(externí zadavatel, konzultant, apod.).}
 %\acknowledgment{Here it is possible to express thanks to the supervisor and to the people which provided professional help
 %(external submitter, consultant, etc.).}
 
@@ -203,34 +204,42 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.}
   \maketitle
   % Obsah
   % ----------------------------------------------
-  \tableofcontents
+  \setlength{\parskip}{0pt}
+
+  {\hypersetup{hidelinks}\tableofcontents}
   
   % Seznam obrazku a tabulek (pokud prace obsahuje velke mnozstvi obrazku, tak se to hodi)
   % List of figures and list of tables (if the thesis contains a lot of pictures, it is good)
-\ifczech
-  \renewcommand\listfigurename{Seznam obrázků}
-\fi
-\ifslovak
-  \renewcommand\listfigurename{Zoznam obrázkov}
-\fi
+  \ifczech
+    \renewcommand\listfigurename{Seznam obrázků}
+  \fi
+  \ifslovak
+    \renewcommand\listfigurename{Zoznam obrázkov}
+  \fi
 
   \listoffigures
 
-\ifczech
-  \renewcommand\listtablename{Seznam tabulek}
-\fi
-\ifslovak
-  \renewcommand\listtablename{Zoznam tabuliek}
-\fi
+  
+  \ifczech
+    \renewcommand\listtablename{Seznam tabulek}
+  \fi
+  \ifslovak
+    \renewcommand\listtablename{Zoznam tabuliek}
+  \fi
 
   % \listoftables 
+
+  \ifODSAZ
+    \setlength{\parskip}{0.5\bigskipamount}
+  \else
+    \setlength{\parskip}{0pt}
+  \fi
 
   % vynechani stranky v oboustrannem rezimu
   % Skip the page in the two-sided mode
   \iftwoside
     \cleardoublepage
   \fi
-
   % Text prace / Thesis text
   % ----------------------------------------------
   %\input{projekt-01-kapitoly-chapters} % viz. obsah.tex / see obsah.tex		
@@ -238,10 +247,10 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.}
   \input{projekt-01-uvod}
   
   \input{projekt-02-historie-lego-mindstorms}
-    
+  
   \input{projekt-04-testovani}
   
-  %\input{projekt-01-kapitoly}
+  \input{projekt-01-kapitoly}
     	
   % Pouzita literatura / Bibliography
   % ----------------------------------------------
@@ -264,7 +273,7 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.}
   %  \bibliographystyle{alpha}
   \fi
 \fi
-  \begin{flushleft} 
+  \begin{flushleft}
   \bibliography{projekt-20-literatura-bibliography}
   \end{flushleft}
 
@@ -276,7 +285,7 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.}
 
   % Prilohy / Appendices
   % ---------------------------------------------
-  %\appendix
+  \appendix
 \ifczech
   \renewcommand{\appendixpagename}{Přílohy}
   \renewcommand{\appendixtocname}{Přílohy}
@@ -287,13 +296,13 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.}
   \renewcommand{\appendixtocname}{Prílohy}
   \renewcommand{\appendixname}{Príloha}
 \fi
-  %\appendixpage
+%  \appendixpage
 
 % vynechani stranky v oboustrannem rezimu
 % Skip the page in the two-sided mode
-\iftwoside
-  \cleardoublepage
-\fi
+%\iftwoside
+%  \cleardoublepage
+%\fi
   
 \ifslovak
 %  \section*{Zoznam príloh}
@@ -308,8 +317,15 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.}
   \fi
 \fi
   \startcontents[chapters]
+  \setlength{\parskip}{0pt}
   % seznam příloh / list of appendices
   % \printcontents[chapters]{l}{0}{\setcounter{tocdepth}{2}}
+  
+  \ifODSAZ
+    \setlength{\parskip}{0.5\bigskipamount}
+  \else
+    \setlength{\parskip}{0pt}
+  \fi
   
   % vynechani stranky v oboustrannem rezimu
   \iftwoside
