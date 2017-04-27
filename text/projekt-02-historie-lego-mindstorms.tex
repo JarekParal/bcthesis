@@ -48,18 +48,15 @@ se již neprogramuje přes infraport, ale využívá se standardní USB kabel, p
 Po hardwarové stránce došlo ke značnému posunu. Původní 8bitový mikrokontrolér byl nahrazen 32bitovým ARM mikrokontrolérem % TODO: mikrokontrolér/mikroprocesor/procesor
 
 AT91SAM7S256 (256~KB~FLASH, 64~KB~RAM, 48~MHz) a~k~němu byl přidán 8bitový ko-procesor ATmega48 (4~KB~FLASH, 512~Byte~RAM, 8~MHz). 
-
 Oba tyto procesory dodávala firma Atmel (nyní již Microchip)~\cite{legoMindstormsNXT_hardware}.
 
 \footnotetext{Zdroj: \url{http://www.itnetwork.cz/java/lego-nxt/seznameni-s-nxj-pro-lego-nxt}} 
 
 \brick{ }lze programovat pomocí vývojového prostředí NXT-G\footnote{NXT-G = NXT Graphic - grafické} (viz obrázek \ref{fig:lego-mindstorms-nxt-g}), které \lego{ }vyvinulo opět ve spolupráci s~\NI{~}\cite{legoMindstormsNXT_NXT-G}. 
-Zároveň \NI{ }dodává toolbox do \labview{ },ve kterém lze \brick{ }také programovat. 
+Zároveň \NI{ }dodává toolbox do \labview{}, ve kterém lze \brick{ }také programovat. 
 
 \legoNXT{ }má ovšem bohatou nabídku alternativních programovacích prostředí, která lze využít k~vytváření kódu pro \brick. 
-
 Některá fungovala již na RCX a~byla upravena i~pro NXT. 
-
 Jako příklad mohu uvést jedno z~nejpoužívanějších prostředí BricxCC\footnote{BricxCC = Bricx Command Center} s~jazykem NXC\footnote{NCX = Not eXactly C}. 
 NCX je vysokoúrovňový open-source jazyk podobný C~\cite{legoWikipediaNXT_NXC}.
 
@@ -107,7 +104,6 @@ Nová verze obsahuje také čtečku Micro SD karet, USB host interface a~jeden v
 Slot na SD karty umožňuje rozšířit paměť pro programy, ale lze jej hlavně využít pro spouštění alternativních operačních systémů. 
 
 Díky USB host interface lze k~EV3 připojovat různé periferie, pro které je v~systému a~vývojovém prostředí připravená obsluha.
-
 Lze tak připojit Wifi modul, klávesnici nebo myš. 
 Zároveň můžete přes USB kabel spojit až čtyři EV3 \brick{\it y} a~ovládat je jedním programem (z~jednoho hlavního \brick{\it u}).
 
@@ -119,9 +115,7 @@ Zároveň můžete přes USB kabel spojit až čtyři EV3 \brick{\it y} a~ovlád
 \end{figure}
 
 Programovací prostředí pro EV3 je znovu postaveno na \labview{ }a~ačkoliv se design v~porovnání s~prostředím pro NXT výrazně změnil (můžete porovnat obrázky \ref{fig:lego-mindstorms-nxt-g} a~\ref{fig:lego-mindstorms-ev3_dev-soft}), neměli by mít uživatelé NXT s~přechodem problém. 
-
 Nové prostředí zvládne naprogramovat jak EV3, tak NXT \brick{}.
-
 
 V~rámci alternativních platforem máme opět velký výběr \cite{legoMindstormsWikipedia_programming-languages}. 
 Vhledem k~nutnosti používání operačního systému je většinou pro dané prostředí potřeba nahrát konkrétní systém na SD kartu a spustit \brick{ }s~touto kartou.
