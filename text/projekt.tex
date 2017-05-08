@@ -36,13 +36,19 @@
 % Basic packages are at the bottom of template file fitthesis.cls
 
 %zde muzeme vlozit vlastni balicky / you can place own packages here
+
 %footnote in caption for figure
-\usepackage{graphicx}
+\usepackage{graphicx} % vkládání obrázků
 \usepackage{afterpage}
 
 %subfigure
 \usepackage{caption}
 \usepackage{subcaption}
+
+%item/enumerate
+\usepackage{enumitem} % umožňuje nastavit menší mezery mezi odrážkami
+%\usepackage{enumerate} % umožňuje širší možnosti nastavení enumerate pomoci [-]
+
 
 %---rm---------------
 \renewcommand{\rmdefault}{lmr}%zavede Latin Modern Roman jako rm / set Latin Modern Roman as rm
@@ -146,15 +152,19 @@ Lego MindstormS EV3 ve výuce programování a robotiky},  %nazev prace v cestin
 \newcommand{\legoM}{LEGO MINDSTORMS}
 \newcommand{\legoNXT}{LEGO MINDSTORMS NXT}
 \newcommand{\legoEV}{LEGO MINDSTORMS EV3}
+\newcommand{\legoSW}{LEGO MINDSTORMS EV3 Software}
 \newcommand{\EVthree}{EV3}
 
 
 \newcommand{\fll}{{\it FIRST} LEGO League}
 \newcommand{\brick}{{\it Brick}}
 \newcommand{\EVbrick}{EV3 {\it Brick}}
+\newcommand{\EVblocks}{{\it programovací bloky}}
+
 
 \newcommand{\evThreeDev}{{\it ev3dev}}
 \newcommand{\leJOS}{{leJOS}}
+\newcommand{\evRT}{{EV3RT}}
 
 \newcommand{\NI}{National Instruments}
 \newcommand{\labview}{LabVIEW}
@@ -249,7 +259,12 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.}
   
   \input{projekt-02-historie-lego-mindstorms}
   
-  %\input{projekt-04-testovani}
+  \input{projekt-03-available-platforms}
+      
+  \input{projekt-04-testovani}
+  
+  
+  
   
   \input{projekt-01-kapitoly}
     	
