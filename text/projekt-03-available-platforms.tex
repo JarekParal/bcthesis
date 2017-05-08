@@ -71,7 +71,12 @@ Zobrazuje na jakém portu je připojen který senzor nebo motor.
 Uživatel může vidět také aktuální hodnoty komponentů a přepínat i jejich režimy.    
 Například u barevného senzoru si může vybrat, zda se bude zobrazovat barva nebo odrazivost povrchu. U motorů lze naopak nastavit, jestli má být ujetá vzdálenost zobrazování v otáčkách nebo ve stupních. 
 Tento panel považuji ze jednu z nejpodstatnějších funkcí celého programu, jelikož dává uživateli dobrý přehled o aktuálním stavu hardwaru. 
-Jednoduše lze tak ladit konstanty v programech (threshold pro barevný senzor při detekci čáry, počet stupňů k dojetí na pozici nebo vzdálenost od překážky měřenou ultrazvukem). \\
+Jednoduše lze tak ladit konstanty v programech (threshold pro barevný senzor při detekci čáry, počet stupňů k dojetí na pozici nebo vzdálenost od překážky měřenou ultrazvukem). 
+
+V následujících odrážkách je shrnut výčet nevýhod a nedostatků originálního LEGO prostředí. 
+Jako nejdůležitější bod bych považoval nepřehlednost rozsáhlejších programů. % a nemožnost ladění a úpravy uživatelských bloků. 
+To je pravděpodobně hlavní důvod proč uživatelé \legoM{} vyhledávají alternativní prostředí. 
+Příklad takových to programů můžete vidět na obrázcích \ref{fig:lego-soft_legolib_converge_array} a \ref{fig:lego-soft_legolib_match_array_length}. \\
 
 Nevýhody \legoSW:
 \renewcommand{\labelitemi}{$-$}
@@ -95,15 +100,9 @@ Nevýhody operačního systému v \brick{\it u}:  %na \lego:
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{images/lego-soft/lego-soft_legolib_converge_array.png}
-	\caption{Ukázka debugování za běhu programu}
-	\label{fig:lego-soft_live-debuging_line-advance}
-\end{figure}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=\textwidth]{images/lego-soft/lego-soft_legolib_match_array_length.png}
-	\caption{Ukázka debugování za běhu programu}
-	\label{fig:lego-soft_live-debuging_line-advance}
+	\caption[Ukázka nepřehlednosti rozsáhlejších programů]{Ukázka nepřehlednosti rozsáhlejších programů - žluté dráhy značí předávání vstupních a výstupních parametrů mezi jednotlivými bloky - velmi špatně se zjišťuje a kontroluje správnost zapojení žlutých drah.}
+	\label{fig:lego-soft_legolib_converge_array}
 \end{figure}
 
-
+\section{ev3dev}
 
