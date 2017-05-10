@@ -1,3 +1,6 @@
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+% speciální nastavení pro TeXstudio kvůli balíčku minted
+
 %==============================================================================
 % tento soubor pouzijte jako zaklad
 % this file should be used as a base for the thesis
@@ -208,6 +211,8 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.}
 % solves first/last row of the paragraph on the previous/next page
 \clubpenalty=10000
 \widowpenalty=10000
+
+\usepackage{minted} % balíček pro formátování zdrojového kódu - musí být zde, jinak nelze přeložit
 
 \begin{document}
   % Vysazeni titulnich stran / Typesetting of the title pages
