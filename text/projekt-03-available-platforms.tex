@@ -1,4 +1,6 @@
 \chapter{Dostupné platformy}
+\label{lego-soft-available-platforms}
+
 
 Pro \legoEV{} existuje mnoho vývojových platforem. 
 Většinou se jedná o~specificky navržené programovací API ve~spojení s~vývojovým prostředím. 
@@ -72,7 +74,7 @@ K dispozici jsou tři druhý připojení: USB kabel, Bluetooth a WiFi. Bluetooth
 	\end{minipage}
 \end{figure}
 
-Nejzajímavějším panelem je správce portů. 
+Nejzajímavějším panelem je správce portů (obrázek~\ref{fig:lego-soft_brick_port-view}). 
 Zobrazuje na jakém portu je připojen který senzor nebo motor. 
 Uživatel může vidět také aktuální hodnoty komponentů a~přepínat jejich režimy.    
 Například u~barevného senzoru si~může vybrat, zda se bude zobrazovat barva nebo odrazivost povrchu. U~motorů lze naopak nastavit, jestli má být ujetá vzdálenost zobrazování v~otáčkách nebo ve~stupních. 
@@ -359,4 +361,49 @@ Ačkoliv má EV3RT určité nevýhody popsané v~předchozím odstavci, rozhodl 
 Tento systém jako jediný nabízí opravdovou real-timovost.
 Netrpí degradací výkonu.
 Zvládne velmi rychle nastartovat a~okamžitě se vypne. 
-A nabízí relativně snadnou možnost zásahů do implementace (úpravu driverů pro EV3 -- úprava PID konstant, modifikace a~přidávání funkcí do uživatelského rozhraní, \dots). 
+A~nabízí relativně snadnou možnost zásahů do implementace (úpravu driverů pro EV3 -- úprava PID~konstant, modifikace a~přidávání funkcí do uživatelského rozhraní, \dots). 
+
+Pro EV3RT lze programovat na Linuxu, Windows i~Macu~\cite{legoProgramingPlatform_EV3RT-git-web_get-started}. 
+V~Linuxu je potřeba jen doinstalovat GCC překladač pro ARMy, BOOST knihovny a~U-Boot mkimage utilitu pro vytváření image systému. 
+Všechny tyto závislosti jsou dostupné přes balíčkovací systéme.
+Na Windows je potřeba nainstalovat Cygwin a~v~něm přidat stejné balíčky jako u~Linuxu. Pak je již postup stejný.
+U~Macu je postup jen mírně odlišný od Linuxu.
+Následně se již vše builduje přes standardní Makefile.
+
+\section{Srovnání dostupných platforem}
+\label{lego-soft-summary}
+
+V~této kapitole bych chtěl v~krátkosti porovnat jednotlivé platformy mezi sebou. 
+Vybral jsem několik bodů, které považuji za~důležité u~platformy určené pro programování stavebnice \lego{}. 
+Zároveň by tyto body měli zohledňovat možnosti budoucího rozvoje daného prostředí a~snadné využití platformy ve~výuce. \\
+
+Platformy budu posuzovat v~těchto bodech:
+
+\begin{enumerate}
+	\item dostupné zdarma
+	\item open-source
+	\item intuitivní programovací rozhraní pro neprogramátory
+	\item nenáročnost na počáteční zprovoznění
+	\item realtimovost
+	\item nenáročné na hardware počítače
+	\item možnost zásahů do vývojového prostředí
+	\item podporované operační systémy
+\end{enumerate}
+
+\begin{center}
+	\begin{tabular}{ | l | c | c | c | c | c | c | c | c |}
+		\hline
+		Prostředí:                  & 1      & 2      & 3      & 4      & 5      & 6      & 7     	& 8							\\ \hline
+		Originální \lego{}          & \Has   & \NoHas & \Has   & \Has   & \NoHas & \NoHas & \NoHas 	& Windows, Mac	\\ \hline 
+		\evThreeDev{}               & \Has   & \Has   & \NoHas & \NoHas & \NoHas & \Has   & \Has 	& Windows, Linux, Mac		\\ \hline 
+		ROS 						& \Has   & \Has   & \NoHas & \NoHas & \NoHas & \NoHas & \Has 	& Linux						\\ \hline 
+		MathWorks doplňky           & \NoHas & \NoHas & \NoHas & \Has   & \NoHas & \NoHas & \NoHas  & Windows, Linux, Mac		\\ \hline 
+		\NI{} modul                 & \NoHas & \NoHas & \NoHas & \Has   & \NoHas & \NoHas & \NoHas  & Windows, Mac				\\ \hline
+		ROBOTC		                & \NoHas & \NoHas & \Has   & \Has   & \NoHas & \Has   & \NoHas  & Windows					\\ \hline
+		EV3RT			            & \Has   & \Has   & \NoHas & \NoHas & \Has   & \Has   & \Has   	& Windows, Linux, Mac		\\ \hline
+	\end{tabular}
+\end{center}
+
+Z~výše uvedené tabulky i~hlubšího zkoumání jednotlivých prostředí v~rámci této kapitoly mi~jako nejvhodnější volba pro programování stavebnice \legoEV{} připadá prostředí EV3RT.
+Má některé nedostatky, které u~jiných prostředí nejsou (složitější API, náročné na počáteční zprovoznění), ale právě tyto problematická místa by mělo být možné díky otevřenému zdrojovému kódu odstranit.
+Proto se již budu v~následujících kapitolách převážně věnovat tomuto systému.
