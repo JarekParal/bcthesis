@@ -52,6 +52,8 @@
 \usepackage{enumitem} % umožňuje nastavit menší mezery mezi odrážkami
 %\usepackage{enumerate} % umožňuje širší možnosti nastavení enumerate pomoci [-]
 
+%využito v tabulce, která označuje, co které prostředí splňuje a co ne
+\usepackage{bbding} % kvůli znakům fajka (\CheckmarkBold) a křížek (\XSolidBrush) => \Has a \NoHas
 
 %---rm---------------
 \renewcommand{\rmdefault}{lmr}%zavede Latin Modern Roman jako rm / set Latin Modern Roman as rm
@@ -179,7 +181,8 @@ Lego MindstormS EV3 ve výuce programování a robotiky},  %nazev prace v cestin
 
 \newcommand{\arduino}{Arduino}
 
-
+\newcommand{\Has}{\textcolor{green}{\CheckmarkBold}}
+\newcommand{\NoHas}{\textcolor{red}{\XSolidBrush}}
 
 %Abstrakt (cesky, slovensky ci anglicky) / Abstract (in czech, slovak or english)
 \abstract[cs]{Cílem této práce je srovnat vývojové platformy pro stavebnici \legoEV{ }z~pohledu programování a~nejlepšího využití v~rámci robotiky. Proto jsou hlavními srovnávacími parametry výkonnost, náročnost programování při rozsáhlejších projektech a~propojení %propojení/spojitost/spojení 
@@ -267,6 +270,8 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.}
   \input{projekt-03-available-platforms}
       
   \input{projekt-04-testovani}
+  
+  \input{projekt-05-vyvojova-platforma}
   
   
   
