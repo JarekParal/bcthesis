@@ -5,7 +5,7 @@ Cílem testování v~této práci je zjistit výkonost jednotlivých platforem a
 Testy jsou zaměřeny primárně na měření časů průběhu hlavní smyčky při určitých činnostech, tak aby bylo možné srovnat výkonost a~stabilitu jednotlivých platforem. 
 Stabilitou je v~tomto případě myšlen rozdíl mezi minimálním a~maximálním naměřeným časem průchodu smyčky v~rámci opakovaných měření a~jednotlivých průchodů.
 
-Při předchozí práci s~\EVthree{ } a~standardně dodávaným prostředím jsem v~rámci základního testování zjistil, že minimální perioda hlavní smyčky s~pár příkazy na vyčtení dat ze senzoru a následného nastavení motorů dle těchto hodnot (klasický program na jízdu po čáře) nejde pod 10~ms. 
+Při předchozí práci s~\EVthree{ } a~standardně dodávaným prostředím jsem v~rámci základního testování zjistil, že minimální perioda hlavní smyčky s~pár příkazy na vyčtení dat ze senzoru a následného nastavení motorů dle těchto hodnot (klasický program na jízdu po čáře) není kratší než 10~ms. 
 Vzhledem k~výkonu procesoru (32-bitový ARM na 300~MHz) v~\EVthree{ }je tento čas velmi zarážející. 
 
 O~to větší překvapení nastalo, když jsem srovnával průměrnou periodu s~maximální. Ukázalo se, že ačkoliv je průměrná perioda přibližně 20~ms, maximální perioda může dosahovat až~100~ms. 
@@ -35,7 +35,7 @@ V~rámci testů jsem se chtěl zaměřit na několik oblastí: % a jejich kombin
 	\item vícevláknové/procesové programy
 \end{itemize}  
 
-Druhá varianta měla zajistil, co možná nejstejnoměrnější podmínky měření času, tak aby jej neovlivňovalo fungování jednotlivých platforem. 
+Druhá varianta měla zajistit co možná nejstejnoměrnější podmínky měření času tak, aby jej neovlivňovalo fungování jednotlivých platforem. 
 Proto mělo být k měření využito Arduino Uno a~velmi jednoduchý program  (příklad programu ve standardním prostředí pro \EVthree{ }na obrázku \ref{fig:LoopTimeLEDblinking-measuring}).
 Program by jen blikal s dvěma LED\footnote{LED = Light-Emitting Diode –- dioda emitující světlo} (zelenou a červenou) umístěnými na přední straně pod ovládacími tlačítky na \EVbrick{{\it u}} a~čas svitu jednotlivých LED by měřilo Arduino.
 
@@ -102,7 +102,7 @@ Každých 50~ms docházelo ke kontrole stavových proměnných u~LED a~případn
 
 Toto chování lze například vysvětlit tak, že v~rámci operačního systému \EVbrick{\it u} je v určité periodě (přibližně 50~ms) vyvoláno přerušení od časovače, které porovná stav proměnných a~registrů LED a~dle výsledku buď rozsvítí nebo zhasne. 
 Proto v~daných intervalech dochází k~interferenci mezi časováním LED (20~ms) a~interního přerušení (přibližně 50~ms) a~podle toho, jak se tyto události sejdou se jednotlivé LED přepínají.
-Tento časovač bude pravděpodobně fungovat jen pro LED, ale nebudu dále ovlivňovat další chování systému.
+Tento časovač bude pravděpodobně fungovat jen pro LED, ale nebude dále ovlivňovat další chování systému.
  
 \begin{figure}[h]
 	\centering
@@ -118,6 +118,8 @@ Tento časovač bude pravděpodobně fungovat jen pro LED, ale nebudu dále ovli
 	\label{fig:measuring-system_photo}
 \end{figure}
 
-Z~naměřených výsledků vyplývá, že tuto variantu testování nelze použít a~bude potřeba nachystat rozsáhlejší testovací metodiku, pro obsluhu jednotlivých funkcí systémů a~platforem, jak je napsáno v úvodu této kapitoly.
+Z~naměřených výsledků vyplývá, že tuto formu testování nelze použít.
+% a~bude potřeba nachystat rozsáhlejší testovací metodiku, pro obsluhu jednotlivých funkcí systémů a~platforem, jak je napsáno v úvodu této kapitoly.
+Rozhodl jsem se tedy vyhodnotit jednotlivé systémy na základě uživatelského pocitu a mých zkušeností s jednotlivými systémy.
 
-TODO
+% TODO
