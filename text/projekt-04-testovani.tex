@@ -5,7 +5,7 @@ Cílem testování v~této kapitole je zjistit výkonnost jednotlivých platfore
 Testy jsou zaměřeny primárně na měření časů průběhu hlavní smyčky při určitých činnostech tak, aby bylo možné srovnat výkonnost a~stabilitu jednotlivých platforem. 
 Stabilitou je v~tomto případě myšlen rozdíl mezi průměrným a~maximálním naměřeným časem průchodu smyčky v~rámci opakovaných měření a~jednotlivých průchodů.
 
-Při předchozí práci s~\EVthree{ } se systémem \evThreeDev (viz kapitola~\ref{lego-ev3dev}), že minimální perioda hlavní smyčky s~pár příkazy na vyčtení dat ze senzoru a následného nastavení motorů dle těchto hodnot (klasický program na jízdu po čáře) není kratší než 10~ms. 
+Při předchozí práci s~\EVthree{ } se systémem \evThreeDev (viz kapitola~\ref{lego-ev3dev}), že minimální perioda hlavní smyčky s~pár příkazy na vyčtení dat ze senzoru a~následného nastavení motorů dle těchto hodnot (klasický program na jízdu po čáře) není kratší než 10~ms. 
 Vzhledem k~výkonu procesoru (32bitový ARM na 300~MHz) v~\EVthree{ }je tento čas velmi zarážející. 
 
 O~to větší překvapení nastalo, když jsem srovnával průměrnou periodu s~maximální. Ukázalo se, že ačkoliv je průměrná perioda přibližně 20~ms, maximální perioda může dosahovat až~100~ms. 
@@ -17,9 +17,9 @@ Jedině tak lze zajistit konstantní periodu.
 Když by se použil tento postup, dostali bychom se na frekvenci 10~Hz, což je z~pohledu regulace již velmi nepříznivá hodnota.
 
 Tyto testy byly provedeny na velmi jednoduchém programu. 
-V případě rozsáhlejších projektů, kde by se pracovalo s~více vlákny a~periferiemi, mohou být výsledky ještě horší.
+V~případě rozsáhlejších projektů, kde by se pracovalo s~více vlákny a~periferiemi, mohou být výsledky ještě horší.
 
-Proto jsem chtěl provést testování s~ekvivalentními programy na jednotlivých platformách a~zjistit, jestli tyto neduhy některá z~nich neodstraňuje a~za jakých situací k podobným problémům dochází.
+Proto jsem chtěl provést testování s~ekvivalentními programy na jednotlivých platformách a~zjistit, jestli tyto neduhy některá z~nich neodstraňuje a~za jakých situací k~podobným problémům dochází.
 
 \section{Forma testování}
 
@@ -33,11 +33,11 @@ V~rámci testů jsem se chtěl zaměřit na několik oblastí: % a jejich kombin
 	\item řízení motorů
 \end{itemize}  
 
-Tuto variantu jsem na počátku odložil, abych zkusil najít metodu jednoduší na implementaci a replikaci na jiné platformy. Následně v ní ale pokračuji v další části kapitoly.
+Tuto variantu jsem na počátku odložil, abych zkusil najít metodu jednoduší na implementaci a~replikaci na jiné platformy. Následně v~ní ale pokračuji v~další části kapitoly.
 
 Druhá varianta měla zajistit co možná nejstejnoměrnější podmínky měření času tak, aby jej neovlivňovalo fungování jednotlivých platforem. 
-Proto mělo být k měření využito Arduino Uno a~velmi jednoduchý program  (příklad programu ve standardním prostředí pro \EVthree{ }na obrázku \ref{fig:LoopTimeLEDblinking-measuring}).
-Program by jen blikal s dvěma LED\footnote{LED = Light-Emitting Diode –- dioda emitující světlo} (zelenou a červenou) umístěnými na přední straně pod ovládacími tlačítky na \EVbrick{{\it u}} a~čas svitu jednotlivých LED by měřilo Arduino.
+Proto mělo být k~měření využito Arduino Uno a~velmi jednoduchý program  (příklad programu ve standardním prostředí pro \EVthree{ }na obrázku \ref{fig:LoopTimeLEDblinking-measuring}).
+Program by jen blikal s~dvěma LED\footnote{LED = Light-Emitting Diode –- dioda emitující světlo} (zelenou a~červenou) umístěnými na přední straně pod ovládacími tlačítky na \EVbrick{{\it u}} a~čas svitu jednotlivých LED by měřilo Arduino.
 
 %U jednotlivých platforem by se měřili časy průchodů hlavní smyčkou a z těchto naměřených dat by se vytvářeli histogramy pro následné vyhodnocení.
 
@@ -46,10 +46,10 @@ Program by jen blikal s dvěma LED\footnote{LED = Light-Emitting Diode –- diod
 
 % Po čase jsem tuto strategii zavrhl. 
 
-Jednalo by se totiž o~jeden z~nejlepších způsobů, jak demonstrovat problémy s~dobou trvání jednotlivých cyklů a~práci s periferiemi. 
+Jednalo by se totiž o~jeden z~nejlepších způsobů, jak demonstrovat problémy s~dobou trvání jednotlivých cyklů a~práci s~periferiemi. 
 V~optimálním případě by totiž měla kombinací těchto dvou barevných LED vzniknout oranžová. 
 
-Pokud by se tak nestalo, pozorovatel by měl hned optickou zpětnou vazbu a~zároveň lze jednoduše měřit časové prodlevy mezi spínáním a~vypínáním jednotlivých LED pomocí měřicí sestavy s Arduinem.
+Pokud by se tak nestalo, pozorovatel by měl hned optickou zpětnou vazbu a~zároveň lze jednoduše měřit časové prodlevy mezi spínáním a~vypínáním jednotlivých LED pomocí měřicí sestavy s~Arduinem.
 
 \section{Měření pomocí LED}
 
@@ -57,7 +57,7 @@ Pokud by se tak nestalo, pozorovatel by měl hned optickou zpětnou vazbu a~zár
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{images/measuring-ev3-software_LoopTimeLEDblinking.png}
-	\caption[Ukázka jednoduchého programu na blikání zelenou a červenou LED]{Ukázka jednoduchého programu na blikání zelenou a červenou LED}
+	\caption[Ukázka jednoduchého programu na blikání zelenou a~červenou LED]{Ukázka jednoduchého programu na blikání zelenou a~červenou LED}
 	\label{fig:LoopTimeLEDblinking-measuring}
 \end{figure}
 
@@ -93,7 +93,7 @@ Jelikož se druhá varianta zdála vhodnější, otestoval jsem ji s~programem, 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=350px]{images/measuring-oscilloscope_ev3-software_led-blinking_all.png}
-	\caption[Záznam signálu z osciloskopu po provedení zkušebního programu]{Záznam signálu z osciloskopu po provedení zkušebního programu}
+	\caption[Záznam signálu z~osciloskopu po provedení zkušebního programu]{Záznam signálu z~osciloskopu po provedení zkušebního programu}
 	\label{fig:measuring_lego-ev3_orig-soft_led-blinking_all}
 \end{figure}
 
@@ -103,14 +103,14 @@ Výsledky byly velice překvapivé. Celkový počet pulzů červené LED (napět
 Při detailním zkoumání se ukázalo, že LED nedokáží blikat na 50~Hz, ale mohou svůj stav měnit vždy s~frekvencí 20~Hz. 
 Každých 50~ms docházelo ke kontrole stavových proměnných u~LED a~případné změně stavu (viz~obrázek~\ref{fig:measuring_lego-ev3_orig-soft_led-blinking_part1} -- jeden dílek odpovídá 100~ms a~1~V).
 
-Toto chování lze například vysvětlit tak, že v~rámci operačního systému \EVbrick{\it u} je v určité periodě (přibližně 50~ms) vyvoláno přerušení od časovače, které porovná stav proměnných a~registrů LED a~dle výsledku buď rozsvítí, nebo zhasne. 
+Toto chování lze například vysvětlit tak, že v~rámci operačního systému \EVbrick{\it u} je v~určité periodě (přibližně 50~ms) vyvoláno přerušení od časovače, které porovná stav proměnných a~registrů LED a~dle výsledku buď rozsvítí, nebo zhasne. 
 Proto v~daných intervalech dochází k~interferenci mezi časováním LED (20~ms) a~interního přerušení (přibližně 50~ms) a~podle toho, jak se tyto události sejdou, se jednotlivé LED přepínají.
 Tento časovač bude pravděpodobně fungovat jen pro LED, ale nebude dále ovlivňovat další chování systému.
  
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=350px]{images/measuring-oscilloscope_ev3-software_led-blinking_part1.png}
-	\caption[Zoom na záznam z osciloskopu po provedení zkušebního programu]{Zoom na záznam z osciloskopu po provedení zkušebního programu}
+	\caption[Zoom na záznam z~osciloskopu po provedení zkušebního programu]{Zoom na záznam z~osciloskopu po provedení zkušebního programu}
 	\label{fig:measuring_lego-ev3_orig-soft_led-blinking_part1}
 \end{figure}
 
@@ -125,27 +125,27 @@ Z~naměřených výsledků vyplývá, že tuto formu testování nelze použít.
 
 \section{Měření jednotlivých operací}
 
-Jelikož nebyli výsledky z~prvního testování uspokojivé, rozhodl jsem se provést testy výkonosti jednotlivých operací na standardním LEGO systému a~RTOS EV3RT (popis v~kapitole \ref{lego-EV3RT}), který dle předchozího zkoumání měl předpoklady k nejlepšímu výkonu.  \\
+Jelikož nebyli výsledky z~prvního testování uspokojivé, rozhodl jsem se provést testy výkonosti jednotlivých operací na standardním LEGO systému a~RTOS EV3RT (popis v~kapitole \ref{lego-EV3RT}), který dle předchozího zkoumání měl předpoklady k~nejlepšímu výkonu.  \\
 
-V rámci testů byla vytvořeny dvě sady: 
+V~rámci testů byla vytvořeny dvě sady: 
 
 \begin{itemize}
     \item matematických operací (sčítání, násobení, dělení, \dots) a~podmínka
-    \item operace se senzory a motory
+    \item operace se senzory a~motory
 \end{itemize}
 
-Jednotlivé měření se prováděli vícenásobným voláním daných metod (v~rozmezí od~1 do~100~000 volání v závislosti na době trvání dané operace) tak, aby bylo možné změřit čas s rozumnou přesností.
-Každé měření pak bylo zopakováno 1000, aby bylo možné určit průměr a maxima. 
-Zdrojové soubory k testům (jak LEGO, tak EV3RT) jsou k dispozici v repozitáři RB-ev3rt-hrp2-sdk~\cite{RB-ev3rt-hrp2-sdk-github}.
+Jednotlivé měření se prováděli vícenásobným voláním daných metod (v~rozmezí od~1 do~100~000 volání v~závislosti na době trvání dané operace) tak, aby bylo možné změřit čas s~rozumnou přesností.
+Každé měření pak bylo zopakováno 1000, aby bylo možné určit průměr a~maxima. 
+Zdrojové soubory k~testům (jak LEGO, tak EV3RT) jsou k~dispozici v~repozitáři RB-ev3rt-hrp2-sdk~\cite{RB-ev3rt-hrp2-sdk-github}.
 
-Matematické operace, jako sčítání, násobení, dělení byly prováděny v plovoucí desetinné čárce (double).
+Matematické operace, jako sčítání, násobení, dělení byly prováděny v~plovoucí desetinné čárce (double).
 
 Z~výkonnostních testu (tabulka~\ref{Benchmark-math} a~\ref{Benchmark-IO}) je dobře vidět, že zpracování operací probíhá na systému EV3RT více jak o~2~řády rychlejší než u~oficiálního systému \EVthree{}. Proto jsem vybral tento systém jako nejvhodnější variantu pro  vytvoření vývojové prostředí.
 
 \begin{table}[h]
 \centering
 
-\caption{Porovnání relativního výpočetního výkonu originálního LEGO systému a~EV3RT -- matematické operace a podmínka \\
+\caption{Porovnání relativního výpočetního výkonu originálního LEGO systému a~EV3RT -- matematické operace a~podmínka \\
 }
 
 \label{Benchmark-math}
@@ -171,7 +171,7 @@ Označení testu                                       & AVG/MAX                
 
 \begin{table}[]
 \centering
-\caption{Porovnání relativního výpočetního výkonu originálního LEGO systému a~EV3RT -- \brick{} komponenty, motory a senzory}
+\caption{Porovnání relativního výpočetního výkonu originálního LEGO systému a~EV3RT -- \brick{} komponenty, motory a~senzory}
 \label{Benchmark-IO}
 \begin{tabular}{@{}ccrrr@{}}
 \toprule
