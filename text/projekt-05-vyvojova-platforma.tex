@@ -1,7 +1,7 @@
 \chapter{Vývojová platforma}
 
-Poté, co jsem si udělal přehled všech existujících platforem pro \legoEV{} v~rámci kapitoly~\ref{lego-soft-available-platforms}, jsem pro svou práci vybral prostředí EV3RT.
-Nad touto platformou jsem se rozhodl vybudovat  vývojové prostředí vhodné pro začátečníky a~stanovil jsem si následující požadavky:
+Poté, co jsem si udělal přehled všech existujících platforem pro \legoEV{} v~rámci kapitoly~\ref{lego-soft-available-platforms}, a provedl testování výkonu v~kapitole~\ref{testing} jsem pro svou práci vybral prostředí EV3RT.
+Nad touto platformou jsem se rozhodl vybudovat vývojové prostředí vhodné pro začátečníky a~stanovil jsem si následující požadavky:
 
 \begin{itemize}
 \item C++~API blízké programovacím blokům v~\lego{} prostředí s~anglickou dokumentací
@@ -19,7 +19,6 @@ V~následujících podkapitolách se budu podrobněji věnovat jednotlivým bod�
 \section{Vývojový proces při rozšiřování EV3RT}
 
 Při vývoji a~rozšiřování systému EV3RT jsem chtěl využít všech běžných vývojářských nástrojů a~služeb.
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:00:55.408Z.
 Prioritou bylo verzování, bez kterého se dnes prakticky žádný dlouhodobější projekt neobejde. Díky tomu lze na projektech snadno spolupracovat s~lidmi po celém světě.
 Jelikož EV3RT již mělo svůj repozitář na GitHubu~\cite{legoProgramingPlatform_EV3RT-github}, neměl jsem důvod přemýšlet nad jinou službou.
 Celý projekt vyvíjím jako forky původních repozitářů. Mohu tak jednoduše vyvíjet pro EV3RT a~zasílat pull-requesty autorům s~případnými opravami nebo vylepšeními.
@@ -113,7 +112,7 @@ MotorTank::onForDegrees(int left_speed = 50, int right_speed = 50,
                         bool_t blocking = true, 
                         unsigned int wait_after_ms = 60);
     \end{minted}
-    \caption[Prototypy C++ API funkce pro nastaveni ujeté vzdálenosti v režimu MotorTank]{Prototypy C++ API funkce pro nastaveni ujeté vzdálenosti v režimu MotorTank (spojení dvova motory jsou )}
+    \caption[Prototypy C++ API funkce pro nastaveni ujeté vzdálenosti v režimu MotorTank]{Prototypy C++ API funkce pro nastaveni ujeté vzdálenosti v režimu MotorTank (spojení dvou motory)}
     \label{src:ev3cxx_motor-rotate}
 \end{figure}
 \begin{figure}[H] 
@@ -294,7 +293,6 @@ Nezobrazuje však už jejich název, tudíž většinou nelze určit, co za para
 Lépe je v editoru zapracováno i~vypisování chyb a~je možné zapnout i~kontrolu správnosti kódu v průběhu psaní.
 
 Bohužel tato IDE jsou šitá na míru daným platformám a~proto je nelze v~rámci mé práce využít. 
-
 Poslouží ale jako dobrá inspirace pro výběr vhodného editoru.
 
 \subsection{Visual Studio Code}
@@ -373,7 +371,7 @@ V rámci obsluhy Bluetooth, při programování vlastních aplikací, má uživa
 Proto pro odesílání aplikací využívám právě PAN a uživatel ve VS~Code spustí odeslání  pomocí klávesy \texttt{F6} (případně pokud chce program přeložit a hned odeslat, může použít klávesu \texttt{F7}).
 Před tím, než může ale uživatel nahrát program do EV3RT, je potřeba se na \brick{\it u}, v menu systému, přepnout do režimu příjmu aplikace přes PAN.
 
-\subsection{Nahrání systému EV3RT do \EVbrick{\it u}}
+\subsection{Nahrání systému EV3RT do EV3}
 
 Pro provozování EV3RT na \brick{\it u} je potřeba nahrát image systému na micro SDHC kartu (minimální velikost musí být 4~GB -- EV3RT podporuje jen SDHC karty).
 \EVbrick{} umožňuje spouštění systémů i z SD karty. Tento režim lze přirovnat k dual-bootu na PC. 
@@ -381,9 +379,63 @@ Výhodou je, že tím nehrozí zničení originálního systému a je možné ve
 Musíte jen vložit SD kartu s EV3RT a nastartovat jej nebo naopak vypnout EV3RT, vyjmout kartu a spustit původní systém.
 
 Image systému se automaticky stáhla v rámci instalace vývojové prostředí, popsané v předchozí kapitole, do složky \texttt{C:/RB3rt-image}. 
-Uživatel jen musí veškerý obsah daného adresáře nakopírovat na micro SDHC kartu a následně ji vložit do \brick{\it u}.
+Uživatel jen musí veškerý obsah daného adresáře nakopírovat na micro~SDHC kartu a následně ji vložit do \brick{\it u}.
 
 
 \section{Dokumentace}
 
-\section{Testování}
+Dokumentace k vývojovému prostředí lze rozdělit na dvě varianty. 
+První varianta jsou komentáře ve zdrojovém kódu se syntaxí Doxygenu.
+Tuto dokumentaci jsem tvořil pro pokročilejší uživatele, kteří by například chtěli rozšiřovat funkčnost C++~API. 
+Zároveň je tvořená v angličtině a tudíž může posloužit lidem z celého světa.
+Dokumentace je automaticky generovaná a je součástí repozitáře s API~\cite{roboticsbrno-EV3RT-API-Reference}.
+     
+Druhou variantou, která je primárně určená pro české uživatele tvořím za pomocí značkovacího jazyku RestructuredText~(reSt) a webové službu Read The Docs~\cite{readthedocs}.
+Dokumentace je díky této službě dostupná jak online~\cite{readthedocs-rb3rt}, tak ji lze stáhnout v PDF formátu nebo HTML pro offline používání.
+Pomocí obrázků programových bloku z LEGO softwaru ukazuji spojitost se svým objektovým API a LEGO bloky.
+Součástí textů je i krátký tutoriál, který uživatele seznámí v několika lekcích se základními komponentami z \legoEV{} a jejich ekvivalenty v C++ API. 
+V rámci jednotlivých úkolů si je uživatel prakticky vyzkouší.
+Ukázku dokumentace lze najít v příloze.
+
+
+
+
+
+\section{Dokumentace}
+
+Dokumentace k vývojovému prostředí lze rozdělit na dvě varianty. 
+První varianta jsou komentáře ve zdrojovém kódu se syntaxí Doxygenu.
+Tuto dokumentaci jsem tvořil pro pokročilejší uživatele, kteří by například chtěli rozšiřovat funkčnost C++~API. 
+Zároveň je tvořená v angličtině a tudíž může posloužit lidem z celého světa.
+Dokumentace je automaticky generovaná a je součástí repozitáře s API~\cite{roboticsbrno-EV3RT-API-Reference}.
+     
+Druhou variantou, která je primárně určená pro české uživatele, tvořím za pomocí značkovacího jazyku RestructuredText~(reSt) a webové službu Read The Docs~\cite{readthedocs}.
+Dokumentace je díky této službě dostupná jak online~\cite{readthedocs-rb3rt}, tak ji lze stáhnout v PDF formátu nebo HTML pro offline používání.
+Pomocí obrázků programových bloku z LEGO softwaru ukazuji souvislost mezi objektovým C++ API a LEGO bloky.
+Součástí textů je i krátký tutoriál, který uživatele seznámí v několika lekcích se základními komponentami z \legoEV{} a jejich ekvivalenty v C++ API. 
+V rámci jednotlivých úkolů si je uživatel prakticky vyzkouší.
+
+\section{Testování se studenty}
+
+V rámci testování celého prostředí jsem začal zkoušet používat objektové API se studenty na SPŠ a VOŠ Brno, Sokolská, kde vedu robotický kroužek.
+Studenti mají k dispozici již přes rok stavebnice \legoEV{} a za tuto dobu jsem s nimi již absolvoval několik soutěží. 
+Někteří z nich se s programováním setkali poprvé až v LEGO softwaru.
+Část ale měla již předchozí zkušenosti v jiných programovacích jazycích (C/C++, Java).
+
+Testování probíhalo tak, že studenti dostali půl hodiny na prostudovaní dokumentace k C++ API na Read The Docs~\cite{readthedocs}. 
+Během této doby pokládali dotazy, s tím co jim nebylo jasné. 
+Většinou se jednalo o nedostatečně vysvětlenou oblast v API. 
+
+Následně jsem studentům postupně zadával řešení jednotlivých úkolů, které jsou zpracovány v rámci Robotutoriálu  na Read The Docs~\cite{readthedocs}.
+Studenti tak zkoušeli základní činnosti jako objet s robotem trojúhelník, nakreslit s ním domeček, dojet k překážce  a odvézt jí. 
+Finálním úkolem byla jízda po čáře.
+Ke každému příkladu bylo předpřipraveno i vzorové řešení, jak v LEGO blocích, tak C++ API.
+Pokud si studenti nevěděli rady, mohli se podívat na řešení. 
+Dle pozorování ovšem skoro nikdo vzorová řešení nevyužil a zvládali požadované úkoly jen s dokumentaci k jednotlivým třídám a metodám.
+Prakticky to brali jako výzvu, kdo první zvládne naprogramovat daný úkol aniž by se díval na řešení.
+
+Při těchto jednoduchých úkolech nedělalo studentům problém s C++ API pracovat a bylo vidět, že jim podobnost s LEGO bloky velmi pomáhá.
+V rámci rozsáhlosti testovacích úkolů (v optimálním případě byl zdrojový kód vždy do 15 řádků v hlavní funkci) jsme nemohli otestovat přehlednost a srozumitelnost kódu při rozsáhlejších projektech v porovnání s LEGO bloky.
+Aktuálně ale mají studenti API k dispozici a plánují jej využít k programování robota na soutěž Ketchup House v rámci Robotického dne 2017 v Praze.
+Během této doby budu se studenty dále pokračovat na rozvoji API, tak aby jim co nejlépe vyhovovalo.
+Již teď si ale myslím, že celé prostředí lze běžně využívat k programování \legoEV{}.
