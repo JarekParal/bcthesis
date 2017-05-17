@@ -1,0 +1,35 @@
+\chapter{Závěr}
+
+Práce zpracovává rešerši na dostupné vývojové platformy v~rámci výuky programování na \legoEV{}.
+Z~výsledků rešerše vyplynulo, že nejvhodnější systém pro EV3 je RTOS EV3RT. 
+Hlavními důvody jsou výkonost, real-timovost, otevřený zdrojový kód, snadná modifikovatelnost a~dostupnost pro uživatele na všech běžných operačních systémech (Windows, Mac, Linux).
+
+RTOS EV3RT byl výkonnostně porovnán se standardním systémem v~\EVbrick{\it u} rozsáhlou sadou testů.
+Výsledky ukazují výrazný výkonnostní rozdíl při provádění jednotlivých činností. 
+EV3RT překonává \lego{} systém ve většině oblastí v~rozmezí sto až tisíci násobku.
+% Zároveň je u něj zajištěno velmi přesné časování a nedochází u něj k časovým prodlevám 
+Z~těchto důvodů byl RTOS EV3RT vybrán jako vhodný systém pro výuku programování. 
+
+Práce se dále věnuje návrhu vývojového prostředí. 
+Vybírá požadavky, které budou u~daného prostředí prioritou.
+Pro EV3RT práce zpracovává objektově orientované C++~API s~anglickou dokumentací, které pokrývá kompletní funkcionality \legoEV{}. 
+API bylo vyvinuto s~důrazem na jednoduchý přechod z~obrázkového LEGO Softwaru a~proto by pro uživatele mělo být snadné začít v~něm programovat.
+To se také potvrdilo během testování se studenty.
+
+Byl proveden i~průzkum několika vývojářských editorů. 
+Za nejvhodnější pro začátečníky v~programování byl zvolen Visual Studio Code, kvůli svému jednoduchému UI, které zároveň zachovává rozsáhlé možností přizpůsobení, velkou palety doplňků a~kvalitní našeptávání. 
+
+K~celému prostředí je připravená česká dokumentace. 
+Pro uživatele je připraven popis C++~API i~vývojářského editoru. 
+Pro každou oblast používání je zpracováno přehledné přirovnání jednotlivých funkcí s~LEGO Softwarem.
+Žáci SPŠ a~VOŠ Brno, Sokolská již postupně toto prostředí začínají využívat k~programování.
+Během testování s~nimi byli odhaleny některé nedostatky v~dokumentaci a~pojmenování metod v~API. 
+Jinak si ale studenti prostředí i~API pochvalovali. 
+Za jednu hodinu si zvládli projít dokumentaci a~začít programovat. 
+Díky podobnosti API s~LEGO Softwarem jim nedělalo problém psát ekvivalentní programy.
+Aktuálně probíhají průběžné úpravy dle zpětné vazbu studentů.
+
+Celé prostředí je momentálně připraveno k~plnému využívání s~\legoEV{}. 
+I~tak je tu mnoho oblastí, ve kterých jej lze dále rozvíjet. 
+Rozpracovány jsou tutoriály se složitějšími úlohami pro studenty, na kterých by se mohli naučit další činnosti (programování více souběžných tasku, vytváření PID regulátorů, rozsáhlejší loggování do souborů).
+V~budoucnu je i~plánu přidání další vrstvy v~API pro jednoduché zakomponování činností jako práce se souřadnicemi, plánování trasy nebo herní logika.

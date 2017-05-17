@@ -330,4 +330,60 @@ Tato funkcionalita například velmi chybí v~Arduino IDE, na což si většina 
 Dalšími důležitými funkcemi jsou integrovaný terminál a~možnost jednoduchého spouštění skriptů.
 VS~Code také nabízí snadné nadefinování klávesových zkratek, s~jejichž pomocí lze volat vlastní skripty.
 Touto cestou jsem se rozhodl implementovat překlad uživatelských programů a~následné zasílání programu do~EV3.
-K veškeré činnosti uživateli stačí jen tři klávesové zkratky: přeložení programu, odeslání programu a~kombinace předchozích dvou příkazů v~rámci jedné klávesy. 
+K veškeré činnosti uživateli stačí jen tři klávesové zkratky: přeložení programu (\texttt{F5}), odeslání programu (\texttt{F6}) a~kombinace předchozích dvou příkazů v~rámci jedné klávesy (\texttt{F7}).
+Zároveň jsem předpřipravil zkratku \texttt{F8} pro spuštění aplikace Lorris s integrovaným terminálem pro komunikaci přes Bluetooth a \texttt{F9} pro otevření webových stránek s dokumentací.
+
+
+\section{Zprovoznění prostředí}
+
+Vývojové prostředí se skládá z editoru, kompilátoru, EV3RT systému, knihoven, skriptů a bootovatelné image systému, určené ke spouštění na \brick{\it u}.
+V následujících dvou podkapitolách bude probrán postup na zprovoznění celého prostředí.
+
+\subsection{Instalace editoru, překladače a nahrání programu do \brick{\it u}}
+
+Pro překlad a nahrání programu do systému EV3RT na Windows je potřeba nainstalovat následující software:
+
+\begin{itemize}
+    \item Cygwin (s balíčky make, perl, diffutil, gcc-core, gcc-g++, curl a libboost-devel)
+    \item GCC překladač pro procesory ARM -- gcc-arm-none-eabi
+    \item Visual Studio Code s doplňkem C/C++ for Visual Studio Code
+\end{itemize}
+
+Abych uživateli a případně učitelům usnadnil instalaci a konfiguraci celého prostředí, připravil jsem batch skript, který všechen potřebný software stáhne a postupně nainstaluje.
+Skript vyžaduje administrátorská práva a občasnou interakci uživatel.
+Součástí skriptu je i stažení systému EV3RT s C++ API a šablona se vzorovým projektem pro uživatele. 
+Aktuálně je vyžadováno fixní umístění softwaru Cygwin a prostředí pro EV3RT do kořenového adresáře disku C.
+
+Po instalaci si již může uživatel nakopírovat vzorový projekt, který je uložený ve složce \texttt{C:/RB3rt-projekt}, kam uzná za vhodné. 
+Otevřít jej ve VS Code, nastavit klávesové zkratky a začít programovat.
+Pokud chce svůj kód přeložit, stačí zmáčknout klávesu \texttt{F5}. 
+Tím se zavolá přepřipravený skript, který spustí kompilaci přes Makefile v Cygwinu. 
+Jelikož jsem musel vyřešit propojení kompilace v Cygwinu s VS Code, kopíruji vždy uživatelův projekt do adresáře se systémem EV3RT, kde následně probíhá samotný překlad.
+
+Celý průběh překladu vidí uživatel v  terminálu, který je součástí VS~Code. 
+Pokud se vyskytne jakákoliv chyba, je o~ní uživatel informován přes zmíněný terminál.
+Při úspěšném přeložení lze následně zkompilovanou aplikaci nahrát na \EVbrick{}. 
+První možností, jak nahrát aplikaci do systému je za pomocí USB. \brick{} s EV3RT se při propojení s PC přes USB kabel chová jako USB Mass Storage zařízení připojit k počítači a lze s ním pracovat jako se standardní SD kartou.
+Další možností, většinou komfortnější, je využít integrovaný Bluetooth. 
+Přes něj lze zasílat aplikace do systému a zároveň komunikovat s programem. 
+EV3RT nabízí dva módy nahrávání přes Bluetooth: SPP\footnote{SPP = Serial Port Profile}, standardní sériový port a PAN\footnote{PAN = Personal Area Network}, v kterém se EV3RT chová jako síťové zařízení.
+
+Z pohledu používání je lepší volba PAN módu, protože nekoliduje s SPP módem v uživatelských aplikacích. 
+V rámci obsluhy Bluetooth, při programování vlastních aplikací, má uživatel dostupný jen SPP mód.
+Proto pro odesílání aplikací využívám právě PAN a uživatel ve VS~Code spustí odeslání  pomocí klávesy \texttt{F6} (případně pokud chce program přeložit a hned odeslat, může použít klávesu \texttt{F7}).
+Před tím, než může ale uživatel nahrát program do EV3RT, je potřeba se na \brick{\it u}, v menu systému, přepnout do režimu příjmu aplikace přes PAN.
+
+\subsection{Nahrání systému EV3RT do \EVbrick{\it u}}
+
+Pro provozování EV3RT na \brick{\it u} je potřeba nahrát image systému na micro SDHC kartu (minimální velikost musí být 4~GB -- EV3RT podporuje jen SDHC karty).
+\EVbrick{} umožňuje spouštění systémů i z SD karty. Tento režim lze přirovnat k dual-bootu na PC. 
+Výhodou je, že tím nehrozí zničení originálního systému a je možné velmi rychle přecházet mezi EV3RT a LEGO systémem. 
+Musíte jen vložit SD kartu s EV3RT a nastartovat jej nebo naopak vypnout EV3RT, vyjmout kartu a spustit původní systém.
+
+Image systému se automaticky stáhla v rámci instalace vývojové prostředí, popsané v předchozí kapitole, do složky \texttt{C:/RB3rt-image}. 
+Uživatel jen musí veškerý obsah daného adresáře nakopírovat na micro SDHC kartu a následně ji vložit do \brick{\it u}.
+
+
+\section{Dokumentace}
+
+\section{Testování}
