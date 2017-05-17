@@ -42,11 +42,9 @@ Moduly se již nepřipojují pomocí speciálních \lego{ }kostek, ale využíva
 \end{figure}
 
 Řídicí kostka (dále jen \brick{}) % TODO: formátování speciálních výrazů
-
 se již neprogramuje přes infraport, ale využívá se standardní USB kabel, případně integrovaný Bluetooth~\cite{legoMindstormsNXT_hardware}.
 
 Po hardwarové stránce došlo ke značnému posunu. Původní 8bitový mikrokontrolér byl nahrazen 32bitovým ARM mikrokontrolérem % TODO: mikrokontrolér/mikroprocesor/procesor
-
 AT91SAM7S256 (256~KB~FLASH, 64~KB~RAM, 48~MHz) a~k~němu byl přidán 8bitový ko-procesor ATmega48 (4~KB~FLASH, 512~Byte~RAM, 8~MHz). 
 Oba tyto procesory dodávala firma Atmel (nyní již Microchip)~\cite{legoMindstormsNXT_hardware}.
 
@@ -57,8 +55,8 @@ Zároveň \NI{ }dodává toolbox do \labview{}, ve kterém lze \brick{ }také pr
 
 \legoNXT{ }má ovšem bohatou nabídku alternativních programovacích prostředí, která lze využít k~vytváření kódu pro \brick. 
 Některá fungovala již na RCX a~byla upravena i~pro NXT. 
-Jako příklad mohu uvést jedno z~nejpoužívanějších prostředí BricxCC\footnote{BricxCC = Bricx Command Center} s~jazykem NXC\footnote{NCX = Not eXactly C}. 
-NCX je vysokoúrovňový open-source jazyk podobný C~\cite{legoWikipediaNXT_NXC}.
+Jako příklad mohu uvést jedno z~nejpoužívanějších prostředí BricxCC\footnote{BricxCC = Bricx Command Center} s~jazykem NXC\footnote{NXC = Not eXactly C}. 
+NXC je vysokoúrovňový open-source jazyk podobný C~\cite{legoWikipediaNXT_NXC}.
 
 \begin{figure}[h]
 	\centering
@@ -70,12 +68,12 @@ NCX je vysokoúrovňový open-source jazyk podobný C~\cite{legoWikipediaNXT_NXC
 \footnotetext{Zdroj: \url{http://lukedainton-robots.blogspot.cz/2012/07/control-systems-shooterbot-nxt-g.html}} 
 Existují ale i~komerční varianty. 
 Například ROBOTC~\cite{legoProgramingPlatform_ROBOTC} je univerzální programovací prostředí a~jazyk umožňující programovat větší množství hardwaru (od \legoM{ }RCX, NXT, EV3 až po Arduino nebo PIC). 
-Jak již název napovídá, ROBOTC je založen na jazyku C (ANSI-C).
+Jak již název napovídá, ROBOTC je založen na jazyku C.
 Uživatel ovšem může přecházet mezi grafickou a~textovou formou programování, což může být pro začátečníky velmi vhodné.
 Také má možnost vybrat si úroveň abstrakce, na jaké bude v~textovém módu pracovat.  
 
 ROBOTC je velmi zajímavé prostředí. Bohužel nikdy nebyla vydána objektová varianta, s~kterou by mohlo být programování ještě jednodušší. 
-Zároveň se jedná o~placený produkt a~jednotlivé licence~\cite{legoProgramingPlatform_ROBOTC-price} tvoří přibližně čtvrtinu současné ceny základní sady stavebnice \legoEV{~}\cite{lego_eduxeEshop_CoreSet}, což už není nezanedbatelná částka.
+Zároveň se jedná o~placený produkt a~jednotlivé licence~\cite{legoProgramingPlatform_ROBOTC-price} tvoří přibližně čtvrtinu současné ceny základní sady stavebnice \legoEV{~}\cite{lego_eduxeEshop_CoreSet}, což už není zanedbatelná částka.
 
 Pro NXT existuje celá řada dalších platforem a~jazyků (Javy, C\#, Lua, Ada, Python~\cite{legoMindstormsNXT_Programming}), které lze použít. 
 Jelikož je ale tato práce zaměřena na \legoEV{ }, nebudou tyto platformy dále řešeny. 
@@ -87,8 +85,7 @@ Proběhlo u~ní mnoho inovací a~změn, i~tak ale byla zachována velmi dobrá k
 
 EV3 přináší zásadní změnu procesoru. 
 Jedná se o~32-bitový~ARM (ARM9), tentokrát ale od firmy Texas Instrument, s~označením AM1808 (16~MB~FLASH, 64~MB~RAM, 300~MHz)~\cite{legoMindstormsEV3_fw-dev-kit}. 
-Kvůli správě paměti již musí tento procesor používat operační systém. % TODO: doplnit info o správě paměti na ARM9 
-\lego{ }pro EV3 vytvořilo upravenou verzi Linuxu. 
+Jelikož tento procesor není primárně určen pro programování bare-metal, \lego{ } dodává upravenou verzi Linuxu. To také velmi zjednoduše správu komplikovaných periferií, jako je USB nebo WiFi. % TODO: doplnit info o správě paměti na ARM9 
 
 \begin{figure}[h]
 	\centering
@@ -99,7 +96,7 @@ Kvůli správě paměti již musí tento procesor používat operační systém.
 
 \footnotetext{Zdroj: \url{http://hackeducation.com/2015/04/10/mindstorms}} 
 
-Nová verze obsahuje také čtečku Micro SD karet, USB host interface a~jeden výstupní port pro motory navíc (celkem 4~porty, NXT jen 3~porty) \cite{legoBotBench_comparing-EV3-and-NXT}. 
+Nová verze obsahuje také čtečku Micro SD karet, USB host interface a~jeden výstupní port pro motory navíc (celkem 4~porty, NXT jen 3~porty). Dále obsahuje reproduktor (NXT jej obsahovalo také, ale kvůli použitému procesoru umělo jen pípat) a dvoubarevnou indikační LED~\cite{legoBotBench_comparing-EV3-and-NXT}. 
 
 Slot na SD karty umožňuje rozšířit paměť pro programy, ale lze jej hlavně využít pro spouštění alternativních operačních systémů. 
 

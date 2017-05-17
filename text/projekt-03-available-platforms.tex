@@ -1,18 +1,13 @@
 \chapter{Dostupné platformy}
-% * <paral.jarek@gmail.com> 2017-05-11T12:27:44.817Z:
-% 
-% > Dostupné platformy
-% Ukázkový komentář. Stačí označit pasáž, kterou chceš okomentovat a kliknout na "+" v horní liště  (a je potřeba být v módu Rich Text).
-% 
-% ^.
+
 \label{lego-soft-available-platforms}
 
 
 Pro \legoEV{} existuje mnoho vývojových platforem. 
 Většinou se jedná o~specificky navržené programovací API ve~spojení s~vývojovým prostředím. 
-Tyto platformy často fungují ve~spolupráci s~oficiální systém v~\EVthree{}, ale jsou i~platformy s~vlastním operačním systémem. 
-V~tomto textu bude popsán jen výběr těch nejzajímavějších. % platforem. 
+Tyto platformy často fungují ve~spolupráci s~oficiálním systémem v~\EVthree{}, ale jsou i~platformy s~vlastním operačním systémem. 
 
+V~tomto textu bude popsán jen výběr těch nejzajímavějších. % platforem. 
 
 \section{Originální prostředí od \lego}
 
@@ -39,11 +34,11 @@ Tento  software vytvořilo \lego{} ve~spolupráci s~firmou \NI{}.
 Je~tudíž postavený na~vývojovém prostředí \labview{}. 
 \lego{} s~\NI{} již~spolupracovalo na předešlých vývojových prostředích. 
 Program se~snaží působit jako profesionální vývojové a~laboratorní studio, což se~mu celkem daří.
-Nabízí celou řadu funkcí od modulu pro programování, přes tvorbu různých experimentů až~po přípravy interaktivních návodů a~průvodců programováním v~tomto prostředí.
+Nabízí celou řadu funkcí od modulu pro programování přes tvorbu různých experimentů až~po přípravy interaktivních návodů a~průvodců programováním v~tomto prostředí.
 
 V~režimu tvorby programu jsou hlavními stavebními kameny \EVblocks, které se ve~formě diagramů skládají do podoby výsledného programu (obrázek \ref{fig:lego-soft_example-blocks}).
 Bloky jsou rozděleny do~několika skupin (akční, tok programu, senzory, datové operace, pokročilé a~vlastní), které se liší svojí barvou a použitím. 
-Pomocí těchto bloků lze řídit tok programu (podmínky, cykly, čekání a vlákna), pracovat s~proměnnými, obsluhovat motory či senzory, provádět matematické operace a~nebo i~využívat vlastní bloky.
+Pomocí těchto bloků lze řídit tok programu (podmínky, cykly, čekání a vlákna), pracovat s~proměnnými, obsluhovat motory či senzory, provádět matematické operace anebo i~využívat vlastní bloky.
 
 \begin{figure}[h]
 	\centering
@@ -57,11 +52,11 @@ Při běhu programu lze~sledovat jeho tok (kde v diagramu se program nachází) 
 Ukázku debuggování si~lze prohlédnout na obrázku \ref{fig:lego-soft_live-debugging_line-advance}, kde je vidět hodnota 39.5, odpovídající výsledku výpočtu výkonu pro levý motor v~závislosti na~naměřené hodnotě od barevného senzoru.
 Zároveň je podle šrafování vrchní lišty bloků vidět, že~program aktuálně probíhá v~daném cyklu.
 
-Pro práci s~\brick{\it em} je k~dispozici modul {\it Správa hardwaru}, kde si lze zjisti informace jako jméno, stav baterie, verze firmwaru nebo obsazenost paměti. 
+Pro práci s~\brick{\it em} je k~dispozici modul {\it Správa hardwaru}, kde si lze zjistit informace jako jméno, stav baterie, verze firmwaru nebo obsazenost paměti. 
 Umožňuje také jednoduše nahrávat, spouštět a ukončovat programy. 
 
 Nalezneme zde i~správu připojení, v~rámci které lze vyhledávat a~připojovat se k dostupným \brick{\it ům}. 
-K dispozici jsou tři druhý připojení: USB kabel, Bluetooth a WiFi. Bluetooth je již integrován, ale pro použití WiFi je potřeba připojit WiFi modul.
+K dispozici jsou tři druhy připojení: USB kabel, Bluetooth a WiFi. Bluetooth je již integrován, ale pro použití WiFi je potřeba připojit WiFi modul.
 
 \begin{figure}[h]
 	\begin{minipage}[b]{.48\textwidth}
@@ -80,23 +75,25 @@ K dispozici jsou tři druhý připojení: USB kabel, Bluetooth a WiFi. Bluetooth
 \end{figure}
 
 Nejzajímavějším panelem je správce portů (obrázek~\ref{fig:lego-soft_brick_port-view}). 
-Zobrazuje na jakém portu je připojen který senzor nebo motor. 
+Zobrazuje, na jakém portu je připojen který senzor nebo motor. 
 Uživatel může vidět také aktuální hodnoty komponentů a~přepínat jejich režimy.    
-Například u~barevného senzoru si~může vybrat, zda se bude zobrazovat barva nebo odrazivost povrchu. U~motorů lze naopak nastavit, jestli má být ujetá vzdálenost zobrazování v~otáčkách nebo ve~stupních. 
+Například u~barevného senzoru si~může vybrat, zda se bude zobrazovat barva, nebo odrazivost povrchu. U~motorů lze naopak nastavit, jestli má být ujetá vzdálenost zobrazování v~otáčkách, nebo ve~stupních. 
 Tento panel považuji ze jednu z~nejpodstatnějších funkcí celého programu, jelikož dává uživateli dobrý přehled o~aktuálním stavu hardwaru. 
-Jednoduše lze tak ladit konstanty v~programech (rozhodovací úroveň pro barevný senzor při detekci čáry, počet otáček motoru potřebných k~dojetí na~požadovanou pozici, nebo vzdálenost od~překážky naměřenou ultrazvukem). 
+Jednoduše lze tak ladit konstanty v~programech (rozhodovací úroveň pro barevný senzor při detekci čáry, počet otáček motoru potřebných k~dojetí na~požadovanou pozici nebo vzdálenost od~překážky naměřenou ultrazvukem). 
 
 V~následujících odrážkách je shrnut výčet nevýhod a~nedostatků originálního LEGO prostředí. 
-Jako nejdůležitější bod bych považoval nepřehlednost rozsáhlejších programů. % a nemožnost ladění a úpravy uživatelských bloků. 
-To je pravděpodobně hlavní důvod proč uživatelé \legoM{} vyhledávají alternativní prostředí. 
-Ukázku rozsáhlejších programů můžete vidět na~obrázcích \ref{fig:lego-soft_legolib_converge_array}~a~\ref{fig:lego-soft_legolib_match_array_length}.\\
+Za nejdůležitější bod bych považoval nepřehlednost rozsáhlejších programů. % a nemožnost ladění a úpravy uživatelských bloků. 
+
+
+To je pravděpodobně hlavní důvod, proč uživatelé \legoM{} vyhledávají alternativní prostředí. 
+Ukázku rozsáhlejších programů je možné vidět na~obrázcích \ref{fig:lego-soft_legolib_converge_array}~a~\ref{fig:lego-soft_legolib_match_array_length}.\\
 
 Nevýhody \legoSW:
 
 \renewcommand{\labelitemi}{$-$} % nastavení pomlček místo plných koleček
 \begin{itemize}[noitemsep]\itemsep2pt
 	\item náročný na hardware počítače
-	\item větší programy se stávají nepřehledné, špatně se v nich orientuje a hledají chyby
+	\item ve větších programech je obtížné se zorientovat anebo najít chybu
 	\item nelze editovat proměnné ani rozhraní uživatelských bloků (jejich parametry)
 	\item debuggovací režim nefunguje uvnitř uživatelských bloků
 	\item při rozsáhlejších programech přestává prostředí fungovat (zamrzá a padá)
@@ -107,7 +104,7 @@ Nevýhody operačního systému v \brick{\it u}:
 \begin{itemize}[noitemsep]\itemsep2pt
 	\item dlouhé zapínání a vypínání
 	\item značně pomalé zpracovávání některých operací (\dots) % TODO: dopsat operace
-	\item není real-timový a časování jednotlivých operací tedy není garantováno
+	\item nepracuje v real-time režimu a časování jednotlivých operací tedy není garantováno
 	\item podpora jen jednoho typu WiFi modulu
 \end{itemize}
 \renewcommand{\labelitemi}{$\bullet$} % vrácení zpět plných koleček
@@ -128,68 +125,45 @@ Nevýhody operačního systému v \brick{\it u}:
 Platforma \evThreeDev{}~\cite{legoMindstormsEV3_ev3dev} je pravděpodobně nejrozšířenější a~nejrozsáhlejší alternativa k originálnímu \lego{} prostředí.
 Jedná se o~systém, drivery a různé wrappery pro jednotlivé programovací jazyky. 
 Samotný systém je založený na~linuxové distribuci Debian, který má v~sobě naportovány originální \lego{} drivery pro \EVbrick{} a~veškeré periferie.
-% * <kuba.streit@gmail.com> 2017-05-11T18:59:36.020Z:
-% 
-% > na portovány
-% Tohle by mělo být jedno slovo, ale za jeho češtinství bych ruku do ohně nedal.
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-11T19:59:40.841Z:
-%
-% Upraveno. OK?
-%
-% ^.
+
 Jelikož je \evThreeDev{} postaven na standardní linuxové distribuci, lze používat velkou škálu programovacích jazyků. 
 K dispozici jsou nízkoúrovňové jazyky C~a~C++. 
 Připraveny jsou i~knihovny a~wrappery pro Python, JavaScrip, Go~\cite{legoMindstormsEV3_ev3dev-prog-lang}. 
 Každý si zde může vybrat podle svých zkušeností nebo preferencí a v~případě chuti naimplementovat i~podporu pro další jazyky. 
-Aktuálně jsou stále rozpracovány implementace pro Java, Lua, Ruby,~\dots
+Aktuálně jsou stále rozpracovány implementace pro Java, Lua, Ruby,~\dots{}.
 
-Pro práci se systémem, je k~dispozici SSH~připojení, případně lze využit terminál dostupný na~úvodní obrazovce a~přes USB port si~připojit externí klávesnici. 
+Pro práci se systémem je k~dispozici SSH~připojení, případně lze využít terminál dostupný na~úvodní obrazovce a~přes USB port si~připojit externí klávesnici. 
 Tento způsob ale z~důvodu velikosti displeje na \brick{\it u} není moc komfortní. 
 Systém \evThreeDev{}, na~rozdíl od~originálního \lego{} prostředí, má lepší podporu ovladačů pro WiFi a~funguje prakticky s~jakýmkoliv USB modulem. 
 Systém umožňuje nastavení automatického připojování na konkrétní WiFi. Pak se již lze k~\brick{\it u} připojovat bezdrátově.
-K připojení je možné případně použít i~USB ethernet modul.
+K připojení je možné případně použít i~USB Ethernet modul.
  
 Co se týče podpory \lego{} motorů a~senzorů, \evThreeDev{} zvládá obsluhovat všechny typy určené pro EV3, NXT a~některá zařízení z~WeDo~\cite{legoMindstormsEV3_ev3dev-support-motors}~\cite{legoMindstormsEV3_ev3dev-support-sensors}.
 Je implementována i~široká podpora alternativních výrobců jako mindsensors.com nebo HiTechnic. 
 Mindsensors.com na svých webových stránkách u~některých modelů zmiňují i~podporu \evThreeDev{}~\cite{lego_mindsensor_gyro}.  
 
-Jako zajímavost lze dodat, že tento systém podporuje i~alternativní \brick{\it y} postavené na jednodeskových počítačích Raspberry~Pi nebo BeagleBone. Příkladem komerčně prodávaných \brick{\it ů} jsou BrickPi od~Dexter Industries~\cite{lego_dexterindustries_brickpi} a PiStorms od mindsensors.com~\cite{lego_mindsensor_pistorms}.
+Pro zajímavost lze dodat, že tento systém podporuje i~alternativní \brick{\it y} postavené na jednodeskových počítačích Raspberry~Pi nebo BeagleBone. Příkladem komerčně prodávaných \brick{\it ů} jsou BrickPi od~Dexter Industries~\cite{lego_dexterindustries_brickpi} a PiStorms od mindsensors.com~\cite{lego_mindsensor_pistorms}.
 Obě tyto alternativy jsou postaveny na Raspberry~Pi a~umožňují připojit stejný počet standardních \lego{} motorů a~senzorů jako EV3.
 Jejich hlavní výhodou je přítomnost výrazně výkonnějšího procesoru v Raspberry~Pi. Na klasickém \brick{\it u} je totiž \evThreeDev{} dosti pomalý. 
 Například samotný start systému trvá přes 60~sekund~\cite{legoMindstormsEV3_ev3dev_video-system-boot}. 
 Otevření SSH spojení přes WiFi, nahrání binárního souboru do \brick{\it u} a~následné spuštění zabere až 40~sekund. 
 K tomuto zdlouhavému procesu bohužel dochází při každé změně programu. 
-Díky použití Raspberry~Pi je také možné jednoduše připojit například kameru a~nebo přímo na GPIO piny přidat vlastní senzory (měření teploty, tlaku, vlhkosti, hodiny reálného času,~\dots).  
+Díky použití Raspberry~Pi je také možné jednoduše připojit například kameru anebo přímo na GPIO piny přidat vlastní senzory (měření teploty, tlaku, vlhkosti, hodiny reálného času,~\dots).  
 Mezi nevýhody můžeme počítat nemožnost účasti s těmito alternativními \brick{\it y} soutěží, které jsou striktně omezeny na použití jen \lego{} komponent (v České republice: \fll{}, Robosoutěž ČVUT, Robotiáda).
 
 Avšak i~tento systém trápí podobné problémy jako originální \lego{} prostředí. 
 Hlavním nedostatkem je, že~Linux nemá standardně real-time kernel. 
 % Linux -> scheduler -> spravedlivý -> negarantuje čas, ale optimální využití procesoru
 % real-time -> není spravedlivý ale umožňuje přesné časování jednotlivých tasku a přesné cyklické spouštění tasku -> nedochází k optimálnímu využití procesoru
-Není tak garantováno přesné přidělování výpočetního času pro uživatelské programy, což je velký problém pro běh různých regulačních smyček, které potřebují konstantní dobo mezi jednotlivými průběhy (například stabilizace samo balancujícího robota). 
-V~\evThreeDev{} dle měření dochází až k 20~ms prodlevám, kdy si kernel zabere výpočetní čas a uživatelská aplikace se nedostane k vykonávání programu~\cite{legoMindstormsEV3_ev3dev-issue_constant-loop-time}. 
-Jedno z řešení je výrazně zpomalit regulační smyčku, ale ani to negarantuje, že se program dostane k~vykonávání v~požadováný čas.
+Není tak garantováno přesné přidělování výpočetního času pro uživatelské programy, což je velký problém pro běh různých regulačních smyček, které potřebují konstantní dobu mezi jednotlivými průběhy (například stabilizace samobalancujícího robota). 
+V~\evThreeDev{} dle měření dochází až k~20~ms prodlevám, kdy si kernel zabere výpočetní čas a~uživatelská aplikace se nedostane k vykonávání programu~\cite{legoMindstormsEV3_ev3dev-issue_constant-loop-time}. 
+Jedno z řešení je výrazně zpomalit regulační smyčku, ale ani to negarantuje, že se program dostane k~vykonávání v~požadovaný čas.
 V~rámci \evThreeDev{} proběhl pokus o~zakomponování real-time kernelu do separátní vývojové větve.~\cite{legoMindstormsEV3_ev3dev-rt-kernel-start}. 
 Jelikož se ale tato větev potýkala s~problémy ovladačů motorů, byl její vývoj ukončen~\cite{legoMindstormsEV3_ev3dev-rt-kernel-end}.  
 % TODO: scheduler v EV3 -  https://github.com/ev3dev/ev3dev/issues/324
 %Určité výtky lze mít i~vůči implementaci driverů pro motory, kde se většina nastavování provádí přes textové řetězce (viz~obrázek~\ref{src:ev3dev-lang-cpp_drive-test}). 
 %Určitě se nejedná o nejrychlejší řešení.
 
-% Také přístup k~jednotlivým driverům (motory a~senzory) je značně pomalý a~degraduje výkon interního 300~MHz procesoru.
-% Při procházení implementace jsem zjistil, že veškerá obsluha motorů a senzorů je prováděna přes zápis a čtení souborů, což by mohlo být místo, které se značně podílí na degradaci výkonu.
-% * <kuba.streit@gmail.com> 2017-05-11T19:17:42.522Z:
-% 
-% > degradaci výkonu
-% Také bych zmínil, že používat textové rozhraní v tomto případě je mírně řečeno velmi nehezké ("on", "off").
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-11T20:03:04.887Z:
-% 
-% Ha vidíš to, to jsem si vůbec neuvědomil :-).
-% 
-% Přepracovat
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T16:48:47.741Z.
 
 \begin{figure}[H] 
 	\begin{minted}[xleftmargin=1.5em,linenos=true]{cpp}
@@ -210,92 +184,48 @@ Bohužel pro člověka, který doposud programoval pouze přes \lego{} prostřed
 
 %Jelikož mám na~\evThreeDev{} největší zkušenosti s C++~API, tak bych chtěl poukázat na nedostatky v tomto API. 
 %Zároveň by u~C++ nemělo docházet k~degradaci výkonu, což může nastávat u interpretovaných jazyků jako Python nebo JavaScript. 
-Příklad v~C++~API jsem vybral z~důvodu mých předešlých zkušenosti s~tímto rozhraním a~předpokladu, že by u~C++ nemělo docházet k~degradaci výkonu, což by mohlo nastávat u~interpretovaných programovacích jazyků jako Python nebo JavaScript.
-% * <kuba.streit@gmail.com> 2017-05-11T19:23:05.422Z:
-% 
-% > Příklad v~C++~API jsem vybral z~důvodu mých předešlých zkušenosti s tímto rozhraním a předpokladu, že by u~C++ nemělo docházet k~degradaci výkonu, což by mohlo nastávat u interpretovaných programovacích jazyků jako Python nebo JavaScript.
-% 
-% To je věta přes 3 řádky - nešla by trochu rozdělit?
-% 
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-11T20:34:57.785Z:
-%
-% Přepracuji celé, viz další komentář.
-%
-% ^ <paral.jarek@gmail.com> 2017-05-13T20:03:55.409Z:
-%
-% Bohužel asi to už lépe nevymyslím :-(.
-%
-% ^.
-% 
+Příklad v~C++~API jsem vybral z~důvodu svých předešlých zkušenosti s~tímto rozhraním a~předpokladu, že by u~C++ nemělo docházet k~degradaci výkonu, což by mohlo nastávat u~interpretovaných programovacích jazyků jako Python nebo JavaScript.
 
-Z~mých dlouhodobých zkušenosti s~začátečníky mám dobrou představu, jakých chyb se nejčastěji dopouští a co jim dělá největší problém.
+Ze~svých dlouhodobých zkušeností se~začátečníky mám dobrou představu, jakých chyb se nejčastěji dopouští a co jim dělá největší problém.
 Proto jsem se v~rámci testování \evThreeDev{} podílel i~na tvorbě knihovny~\cite{legoMindstormsEV3_ev3dev_RB-ev3dev-cpp-lib}, která byla vyvíjena se záměrem co nejvíce usnadnit uživateli programování robotů v~\evThreeDev{}. 
-Přesto, že tato knihovna mnohé neduhy programování na tomto systému odstraňuje, stále tu přetrvává celá řada problémů souvisejících s~použitím Linuxového systému (viz popis v~úvodu této kapitoly).
-% * <email@honzamrazek.cz> 2017-05-11T13:50:56.533Z:
-% 
-% Opravdu protot? Není to proto, že denně pracuješ se začátečníky?
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-11T16:42:56.414Z:
-%
-% Zde jsem chtěl zachytit tu myšlenku, že vím, čím si musí začátečník s EV3DEV (bez naší knihovny) projít, protože jsem si tím sám prošel a vím jak se některé věci v C++ API musí řešit složitě. 
-% Ale asi to tak nevyznívá, že? 
-% Teď si ale nejsem jistý do jaké podoby to tedy opravit. Zda se snažit vypíchnout tu náročnost C++ API a nebo tedy ty poje "každodenní zkušenosti s začátečníky". Co myslíš?  
-%
-% ^ <paral.jarek@gmail.com> 2017-05-11T18:38:33.864Z:
-%
-% Z každodenní zkušenosti s začátečníky ... -> i tak to neřeší problémy daného systému
-%
-% ^ <kuba.streit@gmail.com> 2017-05-11T19:25:38.693Z:
-%
-% Z tvé zkušenosti se začátečníky vyplývá praktická nepoužitelnost jejich API.
-%
-% ^ <paral.jarek@gmail.com> 2017-05-13T20:03:55.409Z:
-%
-% Přepracováno. OK?
-%
-% ^.
+Přestože tato knihovna mnohé neduhy programování na tomto systému odstraňuje, stále tu přetrvává celá řada problémů souvisejících s~použitím linuxového systému (viz popis v~úvodu této kapitoly).
+
 
 Při zkoumání API pro Python~\cite{legoMindstormsEV3_ev3dev-lang-python} jsem došel k~podobnému závěru. 
 Je pravda, že k~němu lze najít rozsáhlejší dokumentaci~\cite{legoMindstormsEV3_ev3dev-lang-python-docs}. 
-I~tak není dle mého názoru dostatečně jednoduché a hlavně intuitivní pro programátora začátečníka přecházejícího, z~\lego{} softwaru.
+I~tak není dle mého názoru pro programátora~- začátečníka, který přechází z~\lego{}  softwaru, toto API dostatečně jednoduché a~intuitivní.
 
 
 \section{ROS}
 
-% ROS je 
-% EV3 neběží ...
-
 S~\legoEV{} je možné používat i~ROS (Robot Operating System)~\cite{legoProgramingPlatform_ROS}. 
 
 ROS je platforma určená přímo pro robotiku a~roboty. 
-Jde o systém, který v~sobě integruje nástroje pro komunikaci, loggování, zpracování obrazu, navigaci, simulace nebo ovládání zařízení atd.
+Jde o systém, který v~sobě integruje nástroje pro komunikaci, loggování, zpracování obrazu, navigaci, simulace nebo ovládání zařízení. 
 Uživateli značně usnadňuje obsluhu vlastního robota, protože má předpřipraveno již mnoho nástrojů.
 
-Kvůli nedostatečnému výkonu \brick{\it u}, na samotném EV3 kompletní ROS neběží.
+Na samotném EV3 kvůli nedostatečnému výkonu \brick{\it u}  kompletní ROS neběží.
 Pro EV3 ale existuje utilita do systému \evThreeDev{}, přes kterou lze pomocí příkazů komunikovat s~ROSem běžícím na standardním PC. 
 Tím lze získávat data ze senzorů a~posílat zpět instrukce pro motory. 
 Komunikace mezi PC a~\EVbrick{\it em} může probíhat po WiFi nebo Ethernetu.
-Veškerá logika jako plánování trasy, herní strategie případně zpracování dat je prováděna v~rámci klasického~PC.
-Hlavními důvody pro použití ROSu na EV3 je široká paleta balíčků, které řeší například práci s~různými senzory jako kamera, Kinect, lidar ale i~ovládacích zařízení typu joystick či gamepad. 
+Veškerá logika jako plánování trasy, herní strategie, případně zpracování dat je prováděna v~rámci klasického~PC.
+Hlavními důvody pro použití ROSu na EV3 je široká paleta balíčků, které řeší například práci s~různými senzory jako kamera, Kinect, lidar, ale i~ovládacích zařízení typu joystick či gamepad. 
 Zároveň je v~ROSu integrována transformace souřadnic, plánování trasy, herní strategie nebo i~simulátor s~fyzikálním enginem.
 
 
-Při využívání ROSu společně se stavebnicí \lego{}, je ovšem problematická nutnost mít k~\brick{\it u} připojené klasické PC. 
-Jak bylo již uvedeno v~kapitole~\ref{lego-ev3dev}, mnoho soutěží pro \legoM{} vyžaduje striktní použití jen \lego{} komponent a~to běžné PC není. 
+Při využívání ROSu společně se stavebnicí \lego{} je ovšem problematická nutnost mít k~\brick{\it u} připojené klasické PC. 
+Jak bylo již uvedeno v~kapitole~\ref{lego-ev3dev}, mnoho soutěží pro \legoM{} vyžaduje striktní použití jen \lego{} komponent, a~to běžné PC není. 
 Zároveň i~soutěže, které nemají tuto podmínku, například Robotický den v~Praze nebo Istrobot v~Bratislavě, zakazují spojení s~jakýmkoliv externím zařízením.
 Tím pádem je nutné, aby na sobě \lego{} robot vozil klasické PC, což může značně zvýšit hmotnost a~náročnost konstrukce. 
-V~dnešní době by to ovšem již neměl být takový problém (např. lze použít Raspberry~Pi a~nebo zařízení založené na~Intel Atom).
-
+V~dnešní době by to ovšem již neměl být takový problém (např. lze použít Raspberry~Pi anebo zařízení založené na~Intel Atom).
 
 \section{Balíček od MathWorks}
 \label{lego-alternative-soft_mathworks}
 
-MathWorks pro \legoM{} připravil doplňky do svých programů Matlab a Simulink. 
+MathWorks pro \legoM{} připravil doplňky do svých programů Matlab a~Simulink. 
 Cílem těchto doplňků je umožnit uživateli ovládat a~programovat \legoM{} ve standardním MathWorks prostředí. 
 V~rámci balíčků je podporováno \legoNXT~\cite{legoProgramingPlatform_MathWork-NXT} i EV3~\cite{legoProgramingPlatform_MathWork-EV3}.
-
-Uživatel může ovládat \brick{} pomocí příkazů z Matlabu a~nebo lze program vytvořit formou diagramů v~Simulinku (podobně jako v~oficiálním \lego{} prostředí). 
+Uživatel může ovládat \brick{} pomocí příkazů z Matlabu anebo lze program vytvořit formou diagramů v~Simulinku (podobně jako v~oficiálním \lego{} prostředí). 
 Příklad programu pro sledování čáry lze vidět na obrázku~\ref{fig:mathworks-simulink_line-tracking-model}.
 Programy v~Simulinku vypadají srozumitelně a~přehledně, ale vzhledem k povaze samotného prostředí (laboratorní až~vědecký simulační nástroj) není jeho ovládání a tvorba aplikací jednoduchá a~pro nováčka občas až odrazující. 
 
@@ -310,17 +240,16 @@ Programy v~Simulinku vypadají srozumitelně a~přehledně, ale vzhledem k povaz
 
 Doplňky ke~svému fungování využívají standardní \lego{} systém. 
 Proto se při ovládání \brick{\it u} z~Matlabu posílají příkazy, které \lego{} připravilo pro vzdálené řízení. 
-EV3 tyto příkazy běžně využívá v~režimu Daisy-Chain, kdy lze USB kabely spojit do série až~čtyři \brick{\it y} a~řídit je jedním programem.     
+EV3 tyto příkazy běžně využívá v~režimu Daisy-Chain, kdy lze USB kabely spojit do série až~čtyř \brick{\it ů} a~řídit je jedním programem.     
 
 Při návrhu programu v~Simulinku se vytváří ekvivalentní byte-code uživatelská aplikace, která se do \brick{\it u} nahrává stejně jako program ze standardního \lego{} prostředí. 
-Z~toho vyplývá, že vlastností a~chování programů vytvořených v Matlabu a~Simulinku budou ekvivalentní se standardními programy z~\lego{} prostředí.
-Bohužel tedy budou trpět nerealtimovostí Linux kernelu a~případnou nestabilitou aplikací, jak je popsáno v závěru kapitoly~\ref{lego-soft-orig-problems}.  
+Z~toho vyplývá, že vlastnosti a~chování programů vytvořených v Matlabu a~Simulinku budou ekvivalentní se standardními programy z~\lego{} prostředí.
 
 Problém balíčku od MathWorksu je i~cena licencí za~jejich software. 
 Standardně se pohybuje v~řádech deseti tisíců korun za~jednu licenci~\cite{legoProgramingPlatform_MathWork_Humusoft-price}.
 To je pro běžného uživatele nepřijatelná částka. 
 MathWorks nabízí i~speciální licence pro školy za~výrazně lepší ceny. 
-K~této licenci se ovšem běžný člověk nedostane a~proto jsem toto prostředí dále nezkoumal.
+K~této licenci se ovšem běžný uživatel nedostane, a~proto jsem toto prostředí dále nezkoumal.
 Doplňky jsou dostupné pro Windows, Mac i  Linux. 
  
 
@@ -334,17 +263,17 @@ Cena licencí je také obdobná. Modul je dostupný pro Windows a Mac.
 
 \section{ROBOTC}
 
-ROBOTC je programovací jazyk pro roboty, založený na jazyku~C. 
+ROBOTC je programovací jazyk pro roboty založený na jazyku~C. 
 Zároveň se jedná o~platformu podporující různé robotické systémy jako \legoM{} (RXC, NXT, EV3), Arduino, VEX Robotics, PIC a~další~\cite{legoProgramingPlatform_ROBOTC}.
 Jde o komerční produkt, který je přímo zaměřen na hobby robotiku.
 Na trhu je již dlouhou dobu a~v~minulosti byl hojně využíván pro programování \legoNXT{}.
 Nabízí zajímavou kombinaci grafického a~textového programování. 
 Grafické programy (ROBOTC Graphical) mají podobný vizuální styl jako Scratch~\cite{scratch_oficial-about} (jeden z nejrozšířenějších grafických programovacích jazyků určený pro výuku programování -- oficiální webové stránky aktuálně navštíví každý měsíc kolem 17 miliónů uživatelů~\cite{scratch_oficial-statistic}). 
-U~textových programů lze volit mírů abstrakce nad kterou se pracuje (ROBOTC~NL /~ROBOTC). 
+U~textových programů lze volit míru abstrakce, nad kterou se pracuje (ROBOTC~NL /~ROBOTC). 
 Mezi grafickým a~textovým režimem se bohužel nelze přepínat.
 
 Součástí prostředí je i~simulátor pro testování programů bez potřeby hardwaru. 
-Uživatel tak může jednoduše ladit program aniž by měl u~sebe fyzicky robota.
+Uživatel tak může jednoduše ladit program, aniž by měl u~sebe fyzicky robota.
 Této možnosti mohou využít zvláště týmy připravující se na určitou soutěž. 
 Část týmu může stavět nebo upravovat hardware, zatímco ostatní mohou ladit program ve~virtuálním prostředí. 
 
@@ -364,51 +293,27 @@ Tudíž zde může docházet k~podobným problémům, jako je popsáno v~kapitol
 V~rámci vývojového programu pro toto prostředí je k~dispozici celá řada podpůrných nástrojů typu debugger, dataloger, vykreslování grafů nebo i~ovládání robota přes joystick.
 Samotné prostředí je relativně propracované a obsahuje mnoho funkcí. 
 Aktuální verze by si zasloužila grafické přepracování tak, aby byla intuitivnější. 
-I~tak je uživatelský interface dobře zpracován. 
-Při psaní kódu mu nedělá problém našeptávání a zobrazování nápovědy u~funkcí.
-Nápověda k programovacím jazykům i~k~prostředí je rozsáhlá a srozumitelná. 
-A~až na to, že není v češtině, ji není co vytknout. % CHECK: myšleno s nadsázkou :-)  
 Je trochu škoda, že není k dispozici implementace jazyka ROBOTC v C++ stylu, ale vzhledem k~dobré koncepci současného jazyka to asi není nutné. 
 
-Jak bylo uvedeno v~úvodu, ROBOTC je komerční program a~s~tím souvisí licenční politika. 
-Program lze zakoupit jako předplatné na rok nebo pro časově neomezené používání a~to v~balíčcích pro jednoho uživatele, pro tým (6~licencí) nebo pro třídu (30~licencí). 
+Jak bylo uvedeno v~úvodu, ROBOTC je komerční program, a~s~tím souvisí licenční politika. 
 Ceny licencí s~platností na jeden rok jsou přibližně poloviční v~porovnání s~časově neomezenými verzemi.
 Neomezená verze dle jednotlivých balíčků stojí: \$79, \$299, \$599~\cite{legoProgramingPlatform_ROBOTC-price}.  
-% * <kuba.streit@gmail.com> 2017-05-11T19:39:36.805Z:
-% 
-% >  \$79, \$299, \$599
-% Nechceš to taky přepočítat a ocitovat?
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-11T20:26:50.571Z:
-%
-% Přemýšlel jsem o tom. Myslíš, že by to bylo lepší?
-%
-% ^ <kuba.streit@gmail.com> 2017-05-11T20:35:30.155Z:
-%
-% Nevím, asi, ale tu citaci určitě.
-%
-% ^ <paral.jarek@gmail.com> 2017-05-14T10:26:50.571Z:
-% 
-% Citace přidána.
-% Mám přepočítat ty částky do korun?
-% 
-% ^.
 V~porovnání s~produkty od MathWorks nebo \NI{} nejsou tyto sumy tak závratné a~když zvážíme cenu samotné stavebnice \legoEV{} (aktuálně 11 700 Kč~\cite{lego_eduxeEshop_CoreSet}, v~přepočtu přibližně~\$470), zdá se mi tato suma přijatelná.
 
 I~tak může být cena za tento produkt pro mnohé uživatele, školy a~vzdělávací instituce rozhodující.
 Zároveň kvůli uzavřenosti tohoto softwaru není možné jednoduše rozšiřovat funkcionalitu a~přidávat další vylepšení do programu. 
-Kvůli výše uvedeným důvodům, jsem se rozhodl, že pro moji práci nebudu toto prostředí dále zvažovat.	
+Vzhledem k výše uvedeným důvodům jsem se rozhodl, že pro svou práci nebudu toto prostředí dále zvažovat.	
 
 
 \section{EV3RT}
 \label{lego-EV3RT}
 
 Při hledání příčin problémů s~časováním na EV3~\cite{legoMindstormsEV3_ev3dev-issue_constant-loop-time} jsem narazil na zajímavý japonský projekt \evRT{}~\cite{legoProgramingPlatform_EV3RT-git-web}.
-Jedná se o~port real-timového systéme TOPPERS/HRP2 na \legoEV{}.
+Jedná se o~port real-timového systému TOPPERS/HRP2 na \legoEV{}.
 Projekt \evRT{} vznikl v~rámci výzkumu na Nagoya University v~Japonsku s cílem odstranění problémů originálního \lego{} systému a~prostředí. 
 Veškeré zdrojové kódy jsou volně k dispozici na GitHubu~\cite{legoProgramingPlatform_EV3RT-github}. 
 
-Histroie projektu TOPPERS\footnote{TOPPERS = Toyohashi OPen Platform for Embedded Real-time Systems} sahá do roku 2003, kdy vznikl jako společný projekt průmyslu, univerzit a~vlády~\cite{legoProgramingPlatform_TOPPERS}. 
+Historie projektu TOPPERS\footnote{TOPPERS = Toyohashi OPen Platform for Embedded Real-time Systems} sahá do roku 2003, kdy vznikl jako společný projekt průmyslu, univerzit a~vlády~\cite{legoProgramingPlatform_TOPPERS}. 
 Cílem projektu bylo vytvoření kvalitního otevřeného real-time systému, využitelného v průmyslu pro embedded zařízení. 
 Zároveň měly být vytvořeny výukové kurzy a~materiály pro studenty.
 V~Japonsku je tento systém využíván jak v průmyslu, tak i~při výuce a~prakticky tvoří průmyslový standard pro embedded zařízení. 
@@ -440,7 +345,8 @@ Uživatel tak může v projektech využívat například \texttt{std::string}, \
 Výkonnostně by na tom měl být systém EV3RT nejlépe ze všech platforem pro EV3, které byly zmíněny v~této kapitole. 
 Hlavní příčinou je samotný RTOS, který má velmi nízkou režii na svůj chod a umožňuje rychlý přístup k~hardwaru. % TODO: + rychlejší zpracování operaci a přepínání tasku
 Oproti standardnímu \lego{} systému zde také neběží žádný virtuální stroj, který může výrazně degradovat výkon při některých operacích. 
-Dle testů provedených tvůrci EV3RT je například provedení nastavení rychlosti ({\it motor\_set\_speed}) v průměru až 100~krát rychlejší než v~originálním systému~\cite{legoProgramingPlatform_EV3RT-paper}. \\
+Dle testů provedených tvůrci EV3RT je například provedení nastavení rychlosti ({\it motor\_set\_speed}) v průměru až 100krát
+ rychlejší než v~originálním systému~\cite{legoProgramingPlatform_EV3RT-paper}. \\
  
 Shrnutí hlavních vlastností \evRT:
 
@@ -448,7 +354,7 @@ Shrnutí hlavních vlastností \evRT:
 	\item malá velikost systému (do 5 MB) i uživatelských aplikací (do 1 MB)
 	\item velmi rychlý start (do 5 sekund) a prakticky okamžité vypnutí
 	\item jednodušší úprava a doprogramování vlastních funkcí do jádra systému
-	\item snadné portování Linuxových driverů
+	\item snadné portování linuxových driverů
 	\item podpora dynamické alokace paměti
 	\item preemptivní multitasking s velmi rychlým přepínáním kontextu (do 8 $\mu$s)
 	\item multiplatformní vývoj aplikací pro EV3
@@ -456,20 +362,15 @@ Shrnutí hlavních vlastností \evRT:
  
 Nevýhodou TOPPERS a~tedy i~EV3RT je, že se jedná primárně o~japonský projekt. 
 Většina dokumentace k~TOPPERS je tak v~japonštině, což se týká i~velké části zdrojového kódu v~EV3RT. 
-Části kódu, které byly převzaty z~oficiálního \lego{} systému nebo byly vytvářeny primárně pro EV3RT jsou zdokumentovány v~angličtině. 
+Části kódu, které byly převzaty z~oficiálního \lego{} systému nebo byly vytvářeny primárně pro EV3RT, jsou zdokumentovány v~angličtině. 
+
 Například ale C~API obsahuje pouze japonskou dokumentaci.
 Jedinou anglickou dokumentací k funkcím dostupných v~TOPPERS/HRP2 je tak všeobecná RTOS specifikace $\mu$ITRON z roku 2002~\cite{legoProgramingPlatform_TOPPERS-IRON}, kterou HRP2, a~tím pádem i~EV3RT, splňují. % splňují/implementují
-Naštěstí překlad z~japonštiny do angličtiny zvládá Google Translate docela dobře a~tak je možné tyto komplikace překonat.
-Zároveň japonští tvůrci ochotně komunikují přes email a~rádi pomohou s~řešením problémů nebo zodpovídáním nejasností.
+Naštěstí překlad z~japonštiny do angličtiny zvládá Google Translate docela dobře, a~tak je možné tyto komplikace překonat.
+
 
 Ačkoliv má EV3RT určité nevýhody popsané v~předchozím odstavci, rozhodl jsem se jej využít pro tvorbu programovacího prostředí pro \legoEV{}.
 Tento systém jako jediný nabízí opravdovou real-timovost.
-% * <paral.jarek@gmail.com> 2017-05-11T17:05:54.029Z:
-% 
-% > real-timovost
-% Můžu to takhle napsat?
-% 
-% ^.
 Netrpí degradací výkonu.
 Zvládne velmi rychle nastartovat a~okamžitě se vypne. 
 Nabízí relativně snadnou možnost zásahů do implementace (úpravu driverů pro EV3 -- úprava konstant PID~regulátoru, modifikace a~přidávání funkcí do uživatelského rozhraní, \dots). 
@@ -482,7 +383,8 @@ Pro EV3RT lze vyvíjet na libovolné POSIX-kompatibilní platformě obsahující
 
 V~této kapitole shrnuji porovnání jednotlivých platforem mezi sebou. 
 Vybral jsem několik bodů, které považuji za~důležité u~platformy určené pro programování stavebnice \lego{}. 
-Zároveň by tyto body měli zohledňovat možnosti budoucího rozvoje daného prostředí a~snadné využití platformy ve~výuce. \\
+Zároveň by tyto body měly zohledňovat možnosti budoucího rozvoje daného prostředí a~snadné využití platformy ve~výuce. \\
+
 
 Platformy budu posuzovat v~těchto bodech:
 
@@ -491,7 +393,7 @@ Platformy budu posuzovat v~těchto bodech:
 	\item open-source
 	\item intuitivní programovací rozhraní pro neprogramátory
 	\item nenáročnost na počáteční zprovoznění
-	\item realtimovost
+	\item real-timovost
 	\item nenáročné na hardware počítače
 	\item možnost zásahů do vývojového prostředí
 	\item podporované operační systémy
@@ -512,19 +414,6 @@ Platformy budu posuzovat v~těchto bodech:
 	\end{tabular}
 \end{center}
 
-% * <kuba.streit@gmail.com> 2017-05-11T20:24:34.069Z:
-% 
-% Co tu tabulku transponovat?
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-11T20:26:15.161Z:
-%
-% Myslíš jako dát systémy na první řádek a body 1 - 8 do prvního sloupce? 
-%
-% ^ <kuba.streit@gmail.com> 2017-05-11T20:27:07.134Z:
-%
-% jj, a vypsal bych je tam, čísla hrozně zdržují od čtení a demotivují
-%
-% ^.
 Z~výše uvedené tabulky i~hlubšího zkoumání jednotlivých prostředí v~rámci této kapitoly mi~jako nejvhodnější volba pro programování stavebnice \legoEV{} připadá prostředí EV3RT.
 Má některé nedostatky, které u~jiných prostředí nejsou (složitější API, náročné na počáteční zprovoznění), ale právě tato problematická místa by mělo být možné díky otevřenému zdrojovému kódu odstranit.
 Proto se již budu v~následujících kapitolách věnovat převážně tomuto systému.

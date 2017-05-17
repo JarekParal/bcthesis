@@ -1,17 +1,6 @@
 \chapter{Vývojová platforma}
 
 Poté, co jsem si udělal přehled všech existujících platforem pro \legoEV{} v~rámci kapitoly~\ref{lego-soft-available-platforms}, jsem pro svou práci vybral prostředí EV3RT.
-% * <lucie.karmova@jcmm.cz> 2017-05-14T11:23:32.792Z:
-% 
-% > mou
-% -> svou
-% http://prirucka.ujc.cas.cz/?id=630
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:02:25.164Z:
-%
-% Dobře.
-%
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:02:37.006Z.
 Nad touto platformou jsem se rozhodl vybudovat  vývojové prostředí vhodné pro začátečníky a~stanovil jsem si následující požadavky:
 
 \begin{itemize}
@@ -30,118 +19,20 @@ V~následujících podkapitolách se budu podrobněji věnovat jednotlivým bod�
 \section{Vývojový proces při rozšiřování EV3RT}
 
 Při vývoji a~rozšiřování systému EV3RT jsem chtěl využít všech běžných vývojářských nástrojů a~služeb.
-% * <lucie.karmova@jcmm.cz> 2017-05-14T11:27:19.473Z:
-% 
-% > Pří
-% -> Při
-% 
 % ^ <paral.jarek@gmail.com> 2017-05-14T12:00:55.408Z.
 Prioritou bylo verzování, bez kterého se dnes prakticky žádný dlouhodobější projekt neobejde. Díky tomu lze na projektech snadno spolupracovat s~lidmi po celém světě.
 Jelikož EV3RT již mělo svůj repozitář na GitHubu~\cite{legoProgramingPlatform_EV3RT-github}, neměl jsem důvod přemýšlet nad jinou službou.
 Celý projekt vyvíjím jako forky původních repozitářů. Mohu tak jednoduše vyvíjet pro EV3RT a~zasílat pull-requesty autorům s~případnými opravami nebo vylepšeními.
-% * <lucie.karmova@jcmm.cz> 2017-05-14T11:28:10.698Z:
-% 
-% > forky
-% Fakt se to takto používá i v odborné češtině?
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:00:47.005Z:
-%
-% Tož otázka, je to převzato z angličtiny (nebo spíš počeštěné anglické slovo fork). Nevím jestli to tak lze psát, ale neznám pro to český ekvivalent.
-%
-% ^ <lucie.karmova@jcmm.cz> 2017-05-14T14:27:37.357Z:
-%
-% Možná by mohl vědět Vojta? Tak to tam vraž, no :-)
-%
-% ^ <paral.jarek@gmail.com> 2017-05-14T15:11:05.125Z.
 Repozitář RB-ev3rt-hrp2~\cite{RB-ev3rt-hrp2-github} obsahuje kompletní systém EV3RT (RTOS TOPPERS/HRP2, drivery pro \brick{}, \dots). 
-% * <lucie.karmova@jcmm.cz> 2017-05-14T11:28:46.430Z:
-% 
-% > systéme
-% -> systém
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T11:57:17.917Z.
+
 V~repozitáři RB-ev3rt-hrp2-sdk~\cite{RB-ev3rt-hrp2-sdk-github} je workspace pro aplikace a~knihovny s~API pro EV3 (nachází se zde kompletní implementace C++ API). RB-ev3rt-hrp2-sdk je v~podobě subrepozitáře distribuován i~v~RB-ev3rt-hrp2. Repozitáře jsou na GitHubu uloženy pod komunitou RobotikaBrno~\cite{RobotikaBrno-web}, na jejímž chodu se ve volném čase podílím. Proto také mají i~všechny repozitáře předponu RB~\cite{RoboticsBrno-github}. RobotikaBrno má za cíl podporu robotiky v~Brně a~České republice.
-% * <lucie.karmova@jcmm.cz> 2017-05-14T11:29:58.131Z:
-% 
-% > Republice
-% -> republice
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T11:57:37.828Z:
-%
-% Opraveno
-%
-% ^ <paral.jarek@gmail.com> 2017-05-14T11:57:38.892Z.
-% * <lucie.karmova@jcmm.cz> 2017-05-14T11:29:08.730Z:
-% 
-% > subrepozítáře
-% -> subrepozitáře
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T11:57:43.008Z:
-%
-% Opraveno
-%
-% ^ <paral.jarek@gmail.com> 2017-05-14T11:57:44.110Z.
 
 V~rámci testovaní a~integrace se systémem EV3RT jsem použil CI\footnote{CI = Continuous Integration} na serveru Travis~\cite{Travis-web}.
-% * <lucie.karmova@jcmm.cz> 2017-05-14T11:30:42.251Z:
-% 
-% > se použil
-% -> asi jen použil?
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T11:58:15.677Z.
 Tato služba má velmi dobré propojení s~GitHubem. 
 CI po každém commitu spouští kompilaci nad jednotlivými testovacími projekty.
 Aktuálně tak provádím základní testování přeložitelnosti kódu~\cite{Travis-RB-ev3rt-hrp2-sdk}.
 Díky tomu mohu zachytit nekonzistentnost na různých místech API, ověřit kompatibilitu s~EV3RT a~zkontrolovat zkompilovatelnost pro všechny vzorové projekty.  
 Jelikož je celý systém EV3RT hardwarově závislý na \legoEV{}, finální testování provádím spouštěním předpřipravených testovacích projektů na reálném hardwaru.
-% * <lucie.karmova@jcmm.cz> 2017-05-14T11:39:16.388Z:
-% 
-% > testováním
-% -> testování, ne?
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T11:58:38.592Z:
-%
-% JJ
-%
-% ^ <paral.jarek@gmail.com> 2017-05-14T11:58:44.690Z.
-% * <lucie.karmova@jcmm.cz> 2017-05-14T11:31:26.395Z:
-% 
-% > tak
-% -> umaž, je to hnusná vycpávka řeči, nedejbože psaného slova :-)
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T11:59:29.548Z:
-%
-% JJ pravda, ale zvyk je železná košile :-(
-%
-% ^ <paral.jarek@gmail.com> 2017-05-14T11:59:31.026Z.
-Pro každou funkcionalitu mám připravený testovací projekt, pomocí nějž ověřuji, zda vše funguje, jak má.
-% * <lucie.karmova@jcmm.cz> 2017-05-14T11:39:53.189Z:
-% 
-% >  funguje jak má
-% >  funguje, jak má
-% Nová věta
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T11:56:46.335Z.
-
-
-\section{Programovací API}
-% * <email@honzamrazek.cz> 2017-05-13T18:31:07.827Z:
-% 
-% Nejsem si jist, jestli je "programovací" správně. Tohle by chtělo zkonzultovat s někým na češtinu zdatným a IT neovlivněným.
-% 
-% ^ <lucie.karmova@jcmm.cz> 2017-05-14T11:41:03.562Z:
-%
-% To bych mohla být já, ale nevím :-)
-%
-% ^ <paral.jarek@gmail.com> 2017-05-14T11:56:32.134Z:
-%
-% Proto jsem tu ten komentář zanechal. Tak to asi nebudu řešit.
-%
-% ^ <lucie.karmova@jcmm.cz> 2017-05-14T14:28:11.631Z:
-%
-% Jj
-%
-% ^ <paral.jarek@gmail.com> 2017-05-14T15:10:52.166Z.
 
 Když jsem přemýšlel nad tím, jak by nejlépe mělo vypadat programovací API pro \lego{}, došel jsem po různých pokusech a~diskuzích se studenty k~závěru, že pro začátečníka bude nejvhodnější objektově orientované API.
 Pro začínajícího programátora je dle mého mínění objektová abstrakce přirozená z~reálného světa a~proto se mu s~objekty bude lépe pracovat.
@@ -151,42 +42,12 @@ Zároveň zapouzdřenost objektů odstiňuje uživatele od implementace a~tím j
 
 
 Předtím, než jsem začal tvořit vlastní C++~API, jsem si důkladně nastudoval a~vyzkoušel EV3RT C~API, abych měl jasnou představu, jak vše funguje.
-% * <lucie.karmova@jcmm.cz> 2017-05-14T11:41:36.389Z:
-% 
-% > C++~API jsem
-% -> C++~API, jsem
-% Nová věta
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T11:55:28.717Z.
-% * <lucie.karmova@jcmm.cz> 2017-05-14T11:41:11.824Z:
-% 
-% > Před tím než jsem
-% -> Předtím, než jsem
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T11:55:31.389Z.
-Při procházení implementace jsem dosti bojoval s~japonskou dokumentací.
-% * <lucie.karmova@jcmm.cz> 2017-05-14T11:42:02.102Z:
-% 
-% > dokumentaci
-% -> dokumentací
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T11:54:48.824Z.
 Dokumentace byla tvořena v~Doxygenu~\cite{doxygen-web}, a~tak jsem se rozhodl ji rozšířit za pomocí Google Translate a~vlastní intuice o anglický překlad.
 Doxygen je jeden z~nejpoužívanějších nástrojů na tvorbu dokumentace k softwarovým projektům. 
 Zvládá generovat jak webové stránky, tak PDF dokumenty pro offline použití.
 
 Po přeložení všech knihoven jsem přes GitHub Pages vytvořil online verzi dokumentace~\cite{roboticsbrno-EV3RT-API-Reference}.
 Zároveň jsem zaslal pull-request autorům EV3RT, kteří jej přijali a~na svých webových stránkách odkazují na mnou vytvořenou dokumentaci~\cite{EV3RT-git-web_documentation}.
-% * <lucie.karmova@jcmm.cz> 2017-05-14T11:43:11.830Z:
-% 
-% > reques
-% -> request
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T11:54:34.840Z:
-%
-% OK
-%
-% ^ <paral.jarek@gmail.com> 2017-05-14T11:54:36.192Z.
 
 \subsection{EV3RT C++ API}
 
@@ -197,63 +58,27 @@ Pro EV3RT již existovalo základní C++~API~\cite{EV3RT-git-web_documentation},
     \item nebylo součástí oficiálních EV3RT repozitářů
     \item autoři EV3RT jej nepovažují za oficiální API a~nejedná se o~jejich výtvor
     \item implementovány jen některé funkce a~dokumentace v~japonštině
-% * <lucie.karmova@jcmm.cz> 2017-05-14T11:44:33.919Z:
-% 
-% > implementována
-% -> implementovány
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T11:54:04.037Z:
-%
-% Ok
-%
-% ^ <paral.jarek@gmail.com> 2017-05-14T11:54:05.663Z.
     \item rozdílná představa o~implementaci některých části API     
 \end{itemize}
 
 \subsection{C++ API}
 
-
 Při procházení C~API v~EV3RT jsem nebyl spokojen s~jeho použitím pro začátečníky. 
 API~sice umožňuje přímý přístup k~hardwaru, tím ale uživateli poskytuje větší prostor k~chybám a~tomu
  je potřeba předcházet. 
-% * <lucie.karmova@jcmm.cz> 2017-05-14T11:45:18.552Z:
-% 
-% > chybám a~tomu
-% > chybám, a~tomu
-% Jiný poměr než slučovací, řekla bych slabý důsledkový pomět. V pořádku je to i bez čárky.
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:03:46.036Z:
-%
-% A doporučení tedy zní zachovat bez čárky nebo přidat čárku? :-)
-% Nebo je to tedy úplně jedno?
-%
-% ^ <lucie.karmova@jcmm.cz> 2017-05-14T14:28:26.432Z:
-%
-% Je to jedno :-)
-%
-% ^ <paral.jarek@gmail.com> 2017-05-14T15:10:40.695Z.
 V~C++~API těmto věcem předcházím pomocí různých prostředků: konstrukcí jazyka (např.~\texttt{enum class}, defaultní parametry funkcí, přetěžováním konstruktorů), názvy funkcí nebo pojmenováním parametrů či~výčtových typů.
-Pro srovnání jsem připravil ukázku C~API (obrázek~\ref{src:ev3api-triangle}) a~mého C++~API (obrázek~\ref{src:ev3cxx-triangle}). 
 
-% * <lucie.karmova@jcmm.cz> 2017-05-14T11:47:30.959Z:
-% 
-% > funkci
-% -> funkcí
-% 
-% ^ <lucie.karmova@jcmm.cz> 2017-05-14T11:47:40.103Z.
+Pro srovnání jsem připravil ukázku C~API (obrázek~\ref{src:ev3api-triangle}) a~svého C++~API (obrázek~\ref{src:ev3cxx-triangle}). 
+Na ukázkách je program pro objetí trojúhelníku. V~C~API není k dispozici funkce, která by umožňovala řídit oba motory naráz, proto se implementace lehce liší.
+
 
 \begin{figure}[H] 
     \begin{minted}[linenos=false]{cpp}
-// C API
 ev3_motor_rotate(motor_port_t port, int degrees, 
                  uint32_t speed_abs, bool_t blocking)
-// C++ API
-onForDegrees(int left_speed = 50, int right_speed = 50, int degrees = 360, 
-             bool_t brake = true, bool_t blocking = true, 
-             unsigned int wait_after_ms = 60);
     \end{minted}
-    \caption{Prototypy funkcí pro nastaveni ujeté vzdálenosti}
-    \label{src:ev3api-ev3cxx_motor-rotate}
+    \caption{Prototypy C API funkce pro nastaveni ujeté vzdálenosti na jednom motoru}
+    \label{src:ev3api_motor-rotate}
 \end{figure}
 
 \begin{figure}[H] 
@@ -276,18 +101,21 @@ void main_task(intptr_t unused) {
     Ukázka kódu pro objetí trojúhelníku v~C~API \\
     Uživatel musí použít několikrát příkaz pro nastavení otočení motorů se správně zadaným portem (EV3\_PORT\_B/EV3\_PORT\_C) a~parametry. 
     Může zde jednoduše dojít k~přepsání se u~označení portu, požadovaného úhlu otočení nebo u parametru blokování -- vykonávání programu je pozastaveno do doby, než motor dojede na požadovanou pozici. 
-% * <lucie.karmova@jcmm.cz> 2017-05-14T11:49:57.831Z:
-% 
-% > doby než motor 
-% -> doby, než motor 
-% Nová věta
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:47:37.815Z.
+
     }
     \label{src:ev3api-triangle}
 \end{figure}
 
-
+\begin{figure}[H] 
+    \begin{minted}[linenos=false]{cpp}
+MotorTank::onForDegrees(int left_speed = 50, int right_speed = 50, 
+                        int degrees = 360, bool_t brake = true, 
+                        bool_t blocking = true, 
+                        unsigned int wait_after_ms = 60);
+    \end{minted}
+    \caption[Prototypy C++ API funkce pro nastaveni ujeté vzdálenosti v režimu MotorTank]{Prototypy C++ API funkce pro nastaveni ujeté vzdálenosti v režimu MotorTank (spojení dvova motory jsou )}
+    \label{src:ev3cxx_motor-rotate}
+\end{figure}
 \begin{figure}[H] 
     \begin{minted}[xleftmargin=1.5em,linenos=true]{cpp}
 void main_task(intptr_t unused) {    
@@ -305,13 +133,6 @@ void main_task(intptr_t unused) {
     \end{minted}
     \caption[Ukázka kódu pro objetí trojúhelníku v~mnou navrženém C++~API]{Ukázka kódu pro objetí trojúhelníku v~mnou navrženém C++~API \\
     Uživatel si nejprve vytvoří instanci objektu \texttt{MotorTank} a v~konstruktoru nadefinuje porty, na kterých má motory připojeny. 
-% * <lucie.karmova@jcmm.cz> 2017-05-14T11:50:41.131Z:
-% 
-% >  porty na kterých má
-% ->  porty, na kterých má
-% Nová věta
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:48:22.917Z.
     Následně již stačí volat funkci \texttt{onForRotations()} nad instancí \texttt{motors} pro dojetí na konkrétní pozice.    
     }
     \label{src:ev3cxx-triangle}
@@ -325,180 +146,37 @@ Zároveň jsem chtěl usnadnit uživateli práci se soubory, zápis na displej a
 
 API jsem tvořil v~podobě C++~knihoven. 
 Zpočátku jsem se domníval, že rozdělení souborů na zdrojové (\texttt{.cpp}) a~hlavičkové (\texttt{.h}) povede k lepší přehlednosti a~rychlejšímu překladu.
-% * <lucie.karmova@jcmm.cz> 2017-05-14T11:53:36.449Z:
-% 
-% > oubory, kvůl
-% Celá ta věta je taková krkolomná. Co spíš něco jako "Zpočátku jsem se domníval, že rozdělení souborů povede k lepší přehlednosti"
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:06:18.169Z:
-% 
-% JJ máš pravdu. Tak je to určitě lepší. Zkusil jsem to tedy upravit
-% 
-% 
-% ^ <lucie.karmova@jcmm.cz> 2017-05-14T14:28:44.138Z:
-%
-% Pěkné.
-%
-% ^ <paral.jarek@gmail.com> 2017-05-14T15:10:34.987Z.
-% * <lucie.karmova@jcmm.cz> 2017-05-14T11:52:11.832Z:
-% 
-% > Z~počátku
-% -> Zpočátku
-% Spřežka
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:06:34.619Z:
-%
-% Z počátku se tedy píše vždy dohromady => Zpočátku?
-%
-% ^ <lucie.karmova@jcmm.cz> 2017-05-14T14:28:54.880Z:
-%
-% Ne vždy, ale tady ano.
-%
-% ^ <lucie.karmova@jcmm.cz> 2017-05-14T14:29:14.107Z:
-%
-% Resp. ne vždy jde o spřežku, ale tady ano a píše se dohromady.
-%
-% ^ <paral.jarek@gmail.com> 2017-05-14T15:10:18.318Z:
-%
-% Dobře.
-%
-% ^ <paral.jarek@gmail.com> 2017-05-14T15:10:29.454Z.
+
 Když jsem ale začal používat šablony a~část implementace byla ve~zdrojových a~část v~hlavičkových souborech, začal jsem nad výhodností rozdělení pochybovat.
 Při každé změně API bylo nutné udržovat konzistenci obou souborů a~tato činnost zpomalovala vývoj. 
-% * <lucie.karmova@jcmm.cz> 2017-05-14T11:54:45.192Z:
-% 
-% > dvou
-% Zbytečné slovo
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:06:47.778Z.
 Proto jsem se rozhodl používat jen hlavičkové soubory. Knihovna je relativně malá a předpokládám, že se to na čase překladu výrazně neprojeví.
-% * <lucie.karmova@jcmm.cz> 2017-05-14T11:55:09.242Z:
-% 
-% > předpokladem
-% -> předpokládám?
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:07:13.400Z.
 Dle pozorování to opravdu nemá žádný podstatný vliv.
 
 Jeden zdrojový soubor (\texttt{ev3cxx.cpp}) jsem si ale ponechal. 
 Vytvářím v~něm globální instance tříd, které by měl mít uživatel  k dispozici. 
-% * <lucie.karmova@jcmm.cz> 2017-05-14T11:56:17.090Z:
-% 
-% > které chci aby měl 
-% -> které by měl mít uživatel k dispozici
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:08:04.255Z.
 Nechci tedy, aby si uživatel tyto instance vytvářel sám lokálně.
-% * <lucie.karmova@jcmm.cz> 2017-05-14T11:56:48.625Z:
-% 
-% > Neboli, nechci aby 
-% -> Nechci tedy, aby
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:08:19.955Z.
-Snažím se tím předejít vícenásobnému vytvoření daných objektů a~následného nežádaného chování.
+
+Snažím se tím předejít vícenásobnému vytvoření daných objektů a~následného nežádoucího chování.
 Toto řešení jsem zvolil například u~třídy pro obsluhu displeje. Každá instance displeje si udržuje informace o~aktuální poloze kurzoru na displeji a~v~případě vytvoření více instancí by docházelo k~nežádoucímu chování v podobě přepisování textů z jedné instance tou druhou.
 Zvažoval jsem i~použití návrhového vzoru singleton~\cite{design-pattern-singleton}, ale nakonec jsem jej zavrhl, protože by uživatel musel používat konstrukci \texttt{getInstance()}, čímž jsem nechtěl začínající uživatele zatěžovat.
 
 Pro snadné používání v~uživatelských projektech jsem se rozhodl jeden hlavičkový soubor (\texttt{ev3cxx.h}) označit jako hlavní a includovat v~něm všechny ostatní hlavičkové soubory s~implementacemi jednotlivých tříd.
-% * <paral.jarek@gmail.com> 2017-05-14T12:08:49.930Z:
-% 
-% > includovat
-% Co si myslíš o slově "includovat". Lze to tak použít? Je to zase přebrané slovo z angličtiny (include).  Viz níže.
-% 
-% ^ <lucie.karmova@jcmm.cz> 2017-05-14T14:29:42.847Z:
-%
-% No je to strašné :-D Ale nevím, jak to napsat lépe ani jak se tomu vyhnout.
-%
-% ^ <paral.jarek@gmail.com> 2017-05-14T15:10:00.653Z:
-%
-% Dobře :-)
-%
-% ^ <paral.jarek@gmail.com> 2017-05-14T15:10:32.491Z.
-% * <lucie.karmova@jcmm.cz> 2017-05-14T11:58:19.035Z:
-% 
-% > s
-% Je na konci řádku
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:08:47.459Z.
 Uživatel tak nemusí řešit jaký soubor includovat, když chce využít danou třídu.
-% * <lucie.karmova@jcmm.cz> 2017-05-14T11:58:41.676Z:
-% 
-% > řešit jaký
-% > řešit, jaký
-% Nová věta
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:11:05.988Z:
-%
-% Includovat je teda tedy sloveso? Nebo proč je to nová věta?
-%
-% ^ <lucie.karmova@jcmm.cz> 2017-05-14T14:31:27.674Z:
-%
-% Jsou tam tři podměty a přísudky, ty musí být oddělené:
-% - Uživatel + nemusí řešit
-% - (uživatel) + (by měl) inkludovat
-% - (uživatel) + chce využít
-%
-% ^ <paral.jarek@gmail.com> 2017-05-14T15:09:42.639Z:
-%
-% JJ dobře.
-%
-% ^ <paral.jarek@gmail.com> 2017-05-14T15:09:44.760Z.
 Vždy si jen na začátku každého projektu includne jeden hlavičkový soubor.
-% * <lucie.karmova@jcmm.cz> 2017-05-14T11:59:07.963Z:
-% 
-% > includne
-% Ach jo, asi ani tady pro to žadné ustálené pěkné výrazy nemáme, co? :-D
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:11:26.174Z:
-%
-% Nemáme :-(.
-%
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:20:30.306Z:
-%
-% Honza navrhuje "vkládat"
-% > každého projektu vloží jeden hlavičkový soubor
-% Zdá se mi ale, že to mění význam. :-(
-%
-% ^ <lucie.karmova@jcmm.cz> 2017-05-14T14:32:36.516Z:
-%
-% Njn, to je jako když v 19. století padaly návrhy místo škaredého cizího "piano" používat "klapkobřinkostroj". Asi bych se na to vykašlala.
-%
-% ^ <paral.jarek@gmail.com> 2017-05-14T15:09:00.870Z:
-%
-% Ok
-%
-% ^ <paral.jarek@gmail.com> 2017-05-14T15:09:18.419Z.
 Obzvláště začátečníci to podle mě ocení.
 
 Pro jednoznačné oddělení objektů v~mém API jsem vše vložil do namespacu \texttt{ev3cxx}. 
 Zároveň ve všech příkladech píši plně kvalifikovaná jména, aby si uživatel tuto zásadu zažil. 
 Podle mého názoru to dobře ukazuje, co je součástí API, a~co ne.
-V~rámci knihoven je ještě použít namespace \texttt{detail}, který skrývá implementace některých částí kódu před uživateli.
+V~rámci knihoven je ještě použit namespace \texttt{detail}, který skrývá implementace některých částí kódu před uživateli.
 V~tomto namespace je ukryta např.  implementace třídy \texttt{display}. 
 Tím jsem docílil, že se uživatel ani při použití našeptávače o daných třídách nedozví, a~pokud ano, v~příručce mu bude vysvětleno, že s~těmito objekty a~funkcemi nemá pracovat.
-% * <lucie.karmova@jcmm.cz> 2017-05-14T12:03:01.998Z:
-% 
-% > uživatel, ani při použití našeptávače, o daných třídách nedozví a pokud ano
-% -> uživatel ani při použití našeptávače o daných třídách nedozví, a pokud ano,
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:18:20.804Z.
 
 
 
 \section{Vývojářská IDE}
 
 Pro programování je vždy nutné mít k~dispozici nějaký editor, ať už se jedná o~jednoduchý textový editor v~podobě Notepadu či VIMu, nebo rozsáhlá vývojová studia typu Eclipse, Microsoft Visual Studio nebo produkty od JetBrains (CLion, PyCharm, PhpStorm, \dots).
-% * <lucie.karmova@jcmm.cz> 2017-05-14T12:04:05.869Z:
-% 
-% > VIMu nebo
-% > VIMu, nebo
-% Párová spojka ať už - nebo
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:18:43.065Z:
-%
-% OK
-%
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:18:44.167Z.
 
 Ze svých zkušeností z~robotických kroužků a~kurzů mohu říct, že čím složitější vývojové studio, tím více se v~něm začínající programátoři ztrácejí.
 Na druhou stranu ani kombinace terminálu a~VIMu není dle mého názoru pro začátečníky vhodná.
@@ -530,13 +208,7 @@ V~minulosti byl hojně využívám pro tvorbu webových stránek nebo i~programo
 
 Nabízí základní slovník a~předpřipravené šablony pro různé jazyky jako HTML, PHP, C/C++, TeX a~mnoho dalších.
 Ve svých schopnostech už ale ztrácí, co se týká inteligentního našeptávání například u~dostupných funkcí v~C/C++ knihovnách.
-% * <lucie.karmova@jcmm.cz> 2017-05-14T12:19:54.626Z:
-% 
-% > ztrácí co se týká
-% -> ztrácí, co se týká
-% Nová věta
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:21:03.182Z.
+%
 Zároveň možnost spouštění skriptů není nijak moc zaintegrována do prostředí a~nepůsobí konzistentně.
 Proto tento editor není vhodný pro rozsáhlejší vývoj.
 
@@ -551,40 +223,15 @@ Jsou zde k~dispozici debuggery, pomocí kterých lze lépe najít chybu v~progra
 A to je výčet jen několika zajímavých funkcí.
 
 Ovšem podle mých zkušeností většina začínajících uživatelů využije sotva 5 procent z~těchto prostředí. 
-% * <lucie.karmova@jcmm.cz> 2017-05-14T12:21:10.441Z:
-% 
-% > Ovšem z~mých zkušeností, většina
-% -> Ovšem podle mých zkušeností většina
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:50:11.735Z.
 To znamená, že zbylých 95 procent funkcí je pro tyto uživatele přebytečných a~matoucích.  
 Pro příklad uvádím obrázky~\ref{fig:visual-studio-community-2015} a~\ref{fig:eclipse_tools-panel}, na kterých lze vidět rozsáhlost UI a~složitost jednotlivých položek v~menu.
 Proto jsem se rozhodl, že tato IDE nejsou vhodná pro začátečníky. 
-% * <lucie.karmova@jcmm.cz> 2017-05-14T12:21:50.251Z:
-% 
-% > tyto
-% -> tato
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:50:28.612Z.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{images/visual-studio_debug.png}
     \caption[Ukázka prostředí v~Microsoft Visual Studio Community 2015]{Ukázka prostředí v~Microsoft Visual Studio Community 2015 \\
     Aby uživatel spustil program, musí vybrat volbu \texttt{Start Without Debugging}, což je v~pořadí až druhá volba a~začátečník ani nemusí tušit, co znamená slovo debugging. 
-% * <lucie.karmova@jcmm.cz> 2017-05-14T12:23:11.322Z:
-% 
-% > program musí
-% -> program, musí
-% Nová věta
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:51:02.820Z.
-% * <lucie.karmova@jcmm.cz> 2017-05-14T12:22:15.011Z:
-% 
-% >   Proto aby uživatel
-% ->   Aby uživatel
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:51:03.746Z.
     }
     \label{fig:visual-studio-community-2015}
 \end{figure}
@@ -594,35 +241,12 @@ Proto jsem se rozhodl, že tato IDE nejsou vhodná pro začátečníky.
     \includegraphics[width=\textwidth]{images/eclipse_tools-panel_focus.png}
     \caption[Ukázka panelu nástrojů v~prostředí Eclipse]{Ukázka panelu nástrojů v~prostředí Eclipse \\
     Zkuste vysvětlit skupině 15 začátečníků, kterou ikonku mají zmáčknout pro překlad, a~kterou pro spuštění. S~velkou pravděpodobností to polovina udělá poprvé špatně.  
-% * <lucie.karmova@jcmm.cz> 2017-05-14T12:24:05.380Z:
-% 
-% > pro překlad a~kterou
-% -> pro překlad, a~kterou
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:51:17.859Z.
     }
     \label{fig:eclipse_tools-panel}
 \end{figure}
 
 \subsection{Arduino IDE a~Processing}
-% * <lucie.karmova@jcmm.cz> 2017-05-14T12:24:33.989Z:
-% 
-% > Arduiono
-% To je fakt ArudiOno? Je to i dále v textu
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:52:21.545Z:
-%
-% Ne, není. Už mi to asi vůbec nemyslelo, když jsem to psal :-).
-%
-% ^ <lucie.karmova@jcmm.cz> 2017-05-14T14:33:00.031Z:
-%
-% Cajk. Bylo to ještě v dalším řádku.
-%
-% ^ <paral.jarek@gmail.com> 2017-05-14T15:08:34.773Z:
-%
-% JJ již opraveno.
-%
-% ^ <paral.jarek@gmail.com> 2017-05-14T15:08:35.626Z.
+
 
 
 Na opačné straně vývojářských nástrojů stojí programy Arduino IDE~\cite{arduino-web} a~Processing~\cite{processing-web} (stále kategorie~C).
@@ -633,51 +257,15 @@ Platforma využívá převážně mikrokontroléry AVR od firmy Atmel.
 Jako programovací jazyk se používá Wiring~\cite{arduino-wiring}, který vychází z~jazyka C.
 
 Processing je taktéž open-source vývojářský program, ale i~jazyk, určený pro snadnou tvorbu vizuálně zajímavé a~interaktivní grafiky.
-% * <lucie.karmova@jcmm.cz> 2017-05-14T12:25:30.621Z:
-% 
-% > program ale i~jazyk
-% -> program, ale i~jazyk
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:53:24.041Z.
 Vznikl v~rámci MIT Media Lab~\cite{processing-web_overview} jako nástroj pro umělce a~lidi, kteří chtějí tvořit elektronické umění, ale nejsou programátoři.
-% * <lucie.karmova@jcmm.cz> 2017-05-14T12:26:02.725Z:
-% 
-% > , jako 
-% Bez čárky
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:53:17.692Z.
 Proto bylo hlavním cílem vytvořit jednoduché prostředí, které jim to umožní. Jazyk Processing je postaven nad Javou.
-% * <lucie.karmova@jcmm.cz> 2017-05-14T12:26:25.798Z:
-% 
-% > jednoduchý
-% -> jednoduché
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:53:32.567Z.
 
 Arduino na Processing navázalo a~snaží se tuto myšlenku rozšířit na hardware. 
 Zároveň použilo vývojářský program od Processingu a~upravilo jej pro své potřeby. 
 V~mnoha oblastech se tyto dva projekty doplňují. 
-% * <lucie.karmova@jcmm.cz> 2017-05-14T12:27:01.125Z:
-% 
-% > doplňuji
-% -> doplňují
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:53:43.067Z.
 Například lze pomocí Processingu graficky vizualizovat naměřené hodnoty ze senzorů připojených k~Arduinu.
 
 Podle mého názoru nabízejí začátečníkovi přesně to co potřebuje: jednoduché UI, v~kterém se rychle zorientuje a~hned najde základní komponenty potřebné k~práci (hlavně tlačítka pro překlad a~spuštění programu). 
-% * <lucie.karmova@jcmm.cz> 2017-05-14T12:27:54.477Z:
-% 
-% > UI v~kterém
-% -> UI, v~kterém
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:53:50.591Z.
-% * <lucie.karmova@jcmm.cz> 2017-05-14T12:27:22.486Z:
-% 
-% > abízejí začátečníkovy přesně to co potřebuje
-% -> začátečníkovI přesně to, co potřebuje
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:54:03.262Z.
 Vše si lze prohlédnout na obrázcích~\ref{fig:arduino+processing} a~\ref{fig:arduino-ide_tools-panel}.
 
 \begin{figure}[h]
@@ -706,18 +294,7 @@ Nezobrazuje však už jejich název, tudíž většinou nelze určit, co za para
 Lépe je v editoru zapracováno i~vypisování chyb a~je možné zapnout i~kontrolu správnosti kódu v průběhu psaní.
 
 Bohužel tato IDE jsou šitá na míru daným platformám a~proto je nelze v~rámci mé práce využít. 
-% * <lucie.karmova@jcmm.cz> 2017-05-14T12:29:32.287Z:
-% 
-% > využit
-% -> využít
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:54:16.841Z.
-% * <lucie.karmova@jcmm.cz> 2017-05-14T12:29:20.975Z:
-% 
-% > tyto
-% -> tato
-% 
-% ^ <paral.jarek@gmail.com> 2017-05-14T12:54:25.740Z.
+
 Poslouží ale jako dobrá inspirace pro výběr vhodného editoru.
 
 \subsection{Visual Studio Code}
@@ -748,12 +325,9 @@ Díky tomu nabízí VS~Code velké množství funkci při zachování jednoduch�
 
 Do VS~Code je možné nainstalovat celou řadu rozšíření. 
 Tím nejzajímavější je doplněk  \texttt{C/C++ for Visual Studio Code}~\cite{vs-code_cpptools} přímo od~Microsoftu, který nabízí velmi dobré našeptávání, automatické formátování nebo vyhledávání definic a~symbolů.
-Tato funkcionalita například velmi chybí v~Arduino IDE, na což si většina mých studentů v~kurzech stěžuje, když zjistí, že ji jiný nástroje umí.
+Tato funkcionalita například velmi chybí v~Arduino IDE, na což si většina mých studentů v~kurzech stěžuje, když zjistí, že ji jiný nástroj umí.
 
 Dalšími důležitými funkcemi jsou integrovaný terminál a~možnost jednoduchého spouštění skriptů.
 VS~Code také nabízí snadné nadefinování klávesových zkratek, s~jejichž pomocí lze volat vlastní skripty.
 Touto cestou jsem se rozhodl implementovat překlad uživatelských programů a~následné zasílání programu do~EV3.
-K veškeré činnosti uživateli stačí jen tři klávesové zkratka: přeložení programu, odeslání programu a~kombinace předchozích dvou příkazů v~rámci jedné klávesy. 
-
-
-
+K veškeré činnosti uživateli stačí jen tři klávesové zkratky: přeložení programu, odeslání programu a~kombinace předchozích dvou příkazů v~rámci jedné klávesy. 

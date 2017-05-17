@@ -2,11 +2,11 @@
 
 Stavebnice \lego{ }je jedna z~nejznámějších a nejprodávanějších stavebnic na světě. 
 V~nabídce firmy \lego{ }je i~robotický set s~názvem \legoM. 
-Dle oficiálních údajů se jedná historicky nejprodávanější set z~celé nabídky firmy~\cite{legoGizmodo_SalesStatistic}. 
+Dle oficiálních údajů se jedná historicky o nejprodávanější set z~celé nabídky firmy~\cite{legoGizmodo_SalesStatistic}. 
 To je také jeden z~hlavních důvodů, proč se tato práce věnuje této stavebnici. 
 %To je také jeden z hlavních důvodů, proč je tato práce zaměřena na tuto stavebnici. 
 
-Z~výše uvedených informací vyplývá, že jde pravděpodobně o~nejdostupnější robotickou stavebnici na světě (pokud pomineme platformu \arduino, která je ovšem zaměřena na jinou skupinu lidí -- lidí, kteří se nebojí elektroniky, elektronických obvodů, složitějších návrhů konstrukce, \dots).
+Z~výše uvedených informací vyplývá, že jde pravděpodobně o~nejdostupnější robotickou stavebnici na světě (pokud pomineme platformu \arduino, která je ovšem zaměřena na jinou skupinu lidí -- lidí, kteří se nebojí elektroniky, elektronických obvodů, složitějších návrhů konstrukce, \dots{}.
 
 \begin{figure}[h]
 	\centering
@@ -33,7 +33,7 @@ Například \fischerT ~prodává podobné robotické sety jako \lego{~}\cite{fis
 Uživateli nabízí rozsáhlejší pohled do elektroniky a~fungování jednotlivých modulů. 
 Umožňuje také relativně snadno přidat vlastní moduly.
 Zároveň má jednoduché grafické programovací prostředí podobně jako \lego. 
-\FischerT{ }ovšem není tak rozšířen jako \legoM, protože ačkoliv nabízí v~některých ohledech více funkcí, zároveň klade větší nároky na uživatele, je podstatně dražší (základní set~\cite{fischertechnik_HelagoEshop_ROBOTICS-TXT-COMPETITION-SET} stojí cca dvakrát tolik co \legoEV{ Základní souprava}~\cite{lego_eduxeEshop_CoreSet}) a~nemá takový věhlas a~značku.
+\FischerT{ }ovšem není tak rozšířen jako \legoM, protože ačkoliv nabízí v~některých ohledech více funkcí, zároveň klade větší nároky na uživatele, je podstatně dražší (základní set~\cite{fischertechnik_HelagoEshop_ROBOTICS-TXT-COMPETITION-SET} stojí zhruba dvojnásobek ceny \legoEV{ Základní soupravy}~\cite{lego_eduxeEshop_CoreSet}) a~nemá takový věhlas a~značku.
 
 % figure + footnote -> minipage 
 %src: http://www.tex.ac.uk/FAQ-ftncapt.html
@@ -74,8 +74,8 @@ Vzhledem k~použitým procesorům je možné tyto stroje programovat v~C/C++, PI
 Robotické stavebnice od Merkuru mají podobné \uv{problémy} jako \fischerT. 
 Kladou na uživatele větší nároky, nemají tak zvučnou značku, mají omezenější základní sadu senzorů a~neumožňují tak rychlou stavbu fungujícího robota.
 
-Na závěr lze zmínit výukové roboty, kteří jsou primárně, na rozdíl od robotických stavebnic, zaměřeny na velmi úzkou oblast činností (jízda po čáře, plnění jednoduchých sekvenčních úkolů, \dots). 
-Tyto roboty jsou zajímavé z~pohledu ceny, ale i~jednoduššího využití ve výuce (žáci nemusí sestavovat konstrukci a hardware je plně připraven k~používání). 
+Na závěr lze zmínit výukové roboty, kteří jsou primárně, na rozdíl od robotických stavebnic, zaměřeny na velmi úzkou oblast činností například jízdu po čáře, plnění jednoduchých sekvenčních úkolů, \dots{}.  
+Tyto roboty jsou zajímavé z~pohledu ceny, ale i~jednoduššího využití ve výuce. Žáci nemusí sestavovat konstrukci a hardware je plně připraven k~používání. 
 
 Naopak již neumožňují rozvoj kreativity studentů při stavbě a přizpůsobení robota pro různé soutěže (většinou je lze využívat jen v~jedné soutěžní kategorii).  
 Mezi takovéto roboty patří například Pololu~3pi~\cite{robotPololu3pi} (primárně určen pro jízdu po čáře -- zvládá jezdit až~1~m/s) nebo Edison~\cite{robotEdison} (umí sledovat čáru, lze jej programovat graficky i~v~Pythonu, má různé senzory, je možné jej kombinovat s~\lego{ }kostkami). 
@@ -143,15 +143,16 @@ Tyto překážky jsou ovšem výrazně náročnější pro studenty, kteří v~t
 
 Často může nastat i~situace, kdy je student se zájmem o~robotiku odrazen její počáteční složitostí.
 Přitom by z~něj mohl být v~budoucnu perfektní programátor. 
-Jen mu zrovna tenhle mikrokontrolér nejde naprogramovat nebo mu koupený H-můstek nechce roztočit motor.
+Jen mu zrovna tento mikrokontrolér nedaří naprogramovat nebo mu koupený H-můstek nechce roztočit motor.
 Proto se svým studentům vždy snažím nachystat co nejlepší prostředí pro začátky s~robotikou. 
 
-Již jsem zkoušel různé platformy (například využít k~výuce robota Pololu~3pi) i~způsoby výuky (kombinace elektroniky, programování na PC a~programování mikrokontrolérů), ale~bohužel vždy jsem se dostal do stejné situace. 
+Již jsem zkoušel různé platformy (například využít k~výuce robota Pololu~3pi) i~způsoby výuky (kombinace elektroniky, programování na PC a~programování mikrokontrolérů), ale~bohužel vždy jsem se dostal do stejné situace:
 
-Ačkoliv mi studenti chodili již rok do robotického kroužku, pořád je dělily minimálně dva roky od schopnosti postavit a~naprogramovat složitějšího robota (s~tím, že by použili předpřipravenou elektroniku, ale rozuměli tomu, co je jak zapojeno + uměli použít dostupné knihovny a~naprogramovat si chování svého robota).
+Ačkoliv mi studenti chodili již rok do robotického kroužku, pořád je dělily minimálně dva roky od schopnosti postavit a~naprogramovat složitějšího robota -- to je: postavit si hardware (s~tím, že by použili předpřipravenou elektroniku) a naprogramovat logiku robota (s použitím předpřipravených knihoven).
 
 Nedávno jsme ale do kroužku zakoupili \legoEV{}. 
-Stavebnici, která mi měla umožnit postavit robota za den. 
+Stavebnici, která by měla umožnit postavit robota za den. 
+
 Prakticky stavebnice snů. No není to nádherná představa?
 A~opravdu tomu tak bylo. Robota jezdícího po čáře jsme s~manuálem zvládli poskládat a~zprovoznit za den. 
 Studenti nemuseli studovat a~řešit zapojení jednotlivých komponentů do řídicí elektroniky. 
@@ -160,10 +161,10 @@ Nebylo třeba trávit mnoho času vysvětlováním způsobu programování 8bito
 Z dílků~\lega{ }si poskládali hardware a pomocí kabelů (které nelze otočit ani zapojit špatně a~tím něco zničit) spojili jednotlivé moduly. A~v~grafickém prostředí si vytvořili svůj program.
 
 
-Pak jsme se ale začali soustředit na zlepšování softwaru i~hardwaru tak, abychom využili stavebnici na 100~procent, a~v~ten moment jsme narazili.
+Pak jsme se ale začali soustředit na zlepšování softwaru i~hardwaru tak, abychom využili stavebnici na 100~procent a~v~ten moment jsme narazili.
 
 Dokud jsme si s~EV3 jen \uv{hráli} a~nesoustředili se primárně na výkon a~spolehlivost, bylo vše v~pořádku. 
-Jakmile jsme ale chtěli mít regulační smyčku PID~regulace pro robota na sledování černé čáry s~periodou 10~ms, zjistili jsme, že to nejde (a~to máme v~EV3 \brick{\it u} 300~MHz~ARM). Přitom díky předešlým zkušenostem s~8bitovými mikrokontroléry Atmel~AVR jsme věděli, že by to neměl být problém.
+Jakmile jsme ale chtěli mít regulační smyčku PID~regulace pro robota na sledování černé čáry s~periodou 10~ms, zjistili jsme, že to není možné (a~to máme v~EV3 \brick{\it u} 300~MHz~ARM). Přitom díky předešlým zkušenostem s~8bitovými mikrokontroléry Atmel~AVR jsme věděli, že by to neměl být problém.
 
 
 To samé platí o~grafickém vývojovém prostředí dodávaném s~\EVthree. Dokud máte na obrazovce několik programových bloků, vše funguje bez problémů. 
