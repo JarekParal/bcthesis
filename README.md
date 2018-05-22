@@ -9,6 +9,8 @@ In this bachelor thesis, we tackle the problem of software development for the L
 
 [Text of thesis (in Czech)](https://github.com/JarekParal/bcthesis/releases/download/v1.0/bcthesis-Jaroslav-Paral-xparal02.pdf)
 
+[Presentation (in Czech)](https://github.com/JarekParal/bcthesis/releases/download/v1.0/bcthesis-Jaroslav-Paral-xparal02-presentation.pdf)
+
 [Bachelor's thesis in the University of Technology Digital Library](https://dspace.vutbr.cz/handle/11012/69817?locale-attribute=en)
 
 ## Other links
@@ -33,6 +35,8 @@ In this bachelor thesis, we tackle the problem of software development for the L
 Bakalářská práce řeší problematiku vývoje softwaru pro LEGO MINDSTORMS EV3 Brick. Cílem je umožnit začínajícím programátorům vytvářet i složitější programy, které již nelze jednoduše navrhnout ve standardním prostředí. Práce porovnává dostupné platformy a na základě výskledků testů vybírá jako nejlepší systém [EV3RT](http://ev3rt-git.github.io). Součástí je [návrh objektového API](https://roboticsbrno.github.io/RB-ev3rt-hrp2-sdk/ev3rt-doc-cxx-api-en/namespaceev3cxx.html), které snižuje obtížnost přechodu z originálního systému. Zároveň poskytuje vhodnou platformu uživatelům, kterým již standardní vývojové prostředí dodávané se stavebnicí nedostačuje a hledají výkonnější alternativu.
 
 [Text bakalářské práce](https://github.com/JarekParal/bcthesis/releases/download/v1.0/bcthesis-Jaroslav-Paral-xparal02.pdf)
+
+[Prezentace k obhajobě bakalářské práce](https://github.com/JarekParal/bcthesis/releases/download/v1.0/bcthesis-Jaroslav-Paral-xparal02-presentation.pdf)
 
 [Bakalářská práce v Digitální knihovně VUT](https://dspace.vutbr.cz/handle/11012/69817?locale-attribute=en)
 
